@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PS1 games match</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>PS1 games match</h1>
+      <p>Выбери победителя в каждом матче и пройди весь турнир до финала.</p>
+    </header>
+
+    <section class="status-card">
+      <h2 id="stage-title">Загрузка...</h2>
+      <p id="stage-description"></p>
+      <div class="meta">
+        <span id="match-counter">Матч 0 из 0</span>
+        <span id="remaining-counter">Осталось участников: 0</span>
+      </div>
+    </section>
+
+    <section id="match-section" class="match-section hidden">
+      <article class="contestant" id="left-card">
+        <h3 id="left-title"></h3>
+        <div class="cover-wrap">
+          <img id="left-cover" class="cover" src="" alt="">
+        </div>
+        <button id="left-pick" class="pick-btn">Выбрать</button>
+      </article>
+      <div class="vs">VS</div>
+      <article class="contestant" id="right-card">
+        <h3 id="right-title"></h3>
+        <div class="cover-wrap">
+          <img id="right-cover" class="cover" src="" alt="">
+        </div>
+        <button id="right-pick" class="pick-btn">Выбрать</button>
+      </article>
+    </section>
+
+    <section id="result-section" class="result-section hidden">
+      <h2 id="champion-title"></h2>
+      <div id="save-run-form" class="save-run-form">
+        <label for="run-name-input">Введи своё имя, чтобы сохранить результат:</label>
+        <div class="save-run-row">
+          <input id="run-name-input" type="text" maxlength="64" placeholder="Твоё имя..." autocomplete="off">
+          <button id="save-run-btn" class="save-run-btn">Сохранить</button>
+        </div>
+        <p id="save-run-feedback" class="save-run-feedback hidden"></p>
+      </div>
+      <div id="saved-runs-section" class="saved-runs-section hidden">
+        <h3>Сохранённые прохождения</h3>
+        <ul id="saved-runs-list"></ul>
+      </div>
+      <button id="restart-btn" class="restart-btn">Начать заново</button>
+    </section>
+
+    <section class="log-card">
+      <h2>Ход турнира</h2>
+      <ul id="stage-log"></ul>
+    </section>
+  </main>
+
+  <script src="./data.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
