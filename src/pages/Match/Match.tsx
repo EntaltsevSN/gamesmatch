@@ -3,6 +3,7 @@ import GamesDuel from "../../components/GamesDuel";
 import Header from "../../components/Header";
 import History from "../../components/History";
 import Stage from "../../components/Stage";
+import Winner from "../../components/Winner";
 import { buildMatchSystem } from "../../config/matchSystem";
 import { ps1Games } from "../../data/ps1";
 
@@ -50,37 +51,38 @@ function getParticipantsForStage(
   return [winnersPool[0], losersPool[0]].filter((id): id is number => typeof id === "number");
 }
 
+function getShuffledParticipants(count: number): number[] {
+  return shuffleIds(ps1Games.map((game) => game.id)).slice(0, count);
+}
+
+function createInitialTournament(ids: number[]): TournamentState {
+  return {
+    stageIndex: 0,
+    stagePairs: pairParticipants(ids),
+    pairIndex: 0,
+    stageWinners: [],
+    stageLosers: [],
+    winnersPool: ids,
+    losersPool: [],
+    lastWinnerId: null,
+    championId: null,
+    history: ["Турнир начат: сформированы пары первого этапа."],
+  };
+}
+
 function Match() {
   const count = 64;
   const plan = useMemo(() => buildMatchSystem(count), [count]);
-  const participants = useMemo(
-    () => shuffleIds(ps1Games.slice(0, count).map((game) => game.id)),
-    [count]
-  );
+  const [winnerModalClosed, setWinnerModalClosed] = useState(false);
 
-  const [tournament, setTournament] = useState(() => {
-    const initialStage = plan.stages[0];
-    const initialPairs = pairParticipants(participants);
-    return {
-      stageIndex: 0,
-      stagePairs: initialPairs,
-      pairIndex: 0,
-      stageWinners: [],
-      stageLosers: [],
-      winnersPool: participants,
-      losersPool: [],
-      lastWinnerId: null,
-      championId: null,
-      history: ["Турнир начат: сформированы пары первого этапа."],
-    } as TournamentState;
-  });
+  const [tournament, setTournament] = useState(() => createInitialTournament(getShuffledParticipants(count)));
 
   const currentStage = plan.stages[tournament.stageIndex];
   const currentPair = tournament.stagePairs[tournament.pairIndex] ?? null;
   const currentPairNumber =
     tournament.stagePairs.length === 0 ? 0 : Math.min(tournament.pairIndex + 1, tournament.stagePairs.length);
-  const lastWinnerTitle = ps1Games.find((item) => item.id === tournament.lastWinnerId)?.title;
   const championTitle = ps1Games.find((item) => item.id === tournament.championId)?.title;
+  const isWinnerModalOpen = tournament.championId !== null && !winnerModalClosed;
 
   const pickWinner = (winnerId: number) => {
     setTournament((prev) => {
@@ -198,39 +200,23 @@ function Match() {
           onPickLeft={() => pickWinner(currentPair[0])}
           onPickRight={() => pickWinner(currentPair[1])}
         />
-      ) : (
+      ) : !tournament.championId ? (
         <section className="status-card">
-          <h2>{tournament.championId ? "Турнир завершен" : "Этап завершен"}</h2>
-          <p>
-            {tournament.championId
-              ? `Чемпион: ${championTitle ?? tournament.championId}.`
-              : "Пары текущего этапа сыграны, выполняется переход к следующему этапу."}
-          </p>
+          <h2>Этап завершен</h2>
+          <p>Пары текущего этапа сыграны, выполняется переход к следующему этапу.</p>
         </section>
-      )}
+      ) : null}
 
-      <section className="status-card">
-        <h2>Текущее состояние матча</h2>
-        <div className="meta">
-          <span>Команд в чемпионате: {count}</span>
-          <span>Текущий этап: {currentStage.id}</span>
-          <span>Матчей на этапе: {currentStage.matches}</span>
-          <span>Команд на входе этапа: {currentStage.teamsIn}</span>
-          <span>Проходят дальше: {currentStage.winnersOut}</span>
-          <span>Падают в лузеры: {currentStage.dropsToLosers}</span>
-          <span>Вылетают: {currentStage.eliminated}</span>
-          <span>Всего этапов: {plan.totalStages}</span>
-          <span>Всего матчей: {plan.totalMatches}</span>
-          <span>Розыгрыш пары: {currentPairNumber} из {tournament.stagePairs.length}</span>
-        </div>
-        <p className="match-result">
-          {lastWinnerTitle
-            ? `Последняя сыгранная пара: победитель ${lastWinnerTitle}.`
-            : "Пока нет сыгранных пар. Выбери победителя в дуэли выше."}
-        </p>
-      </section>
-
-      <History items={tournament.history.slice(-6)} />
+      <History items={tournament.history} />
+      <Winner
+        isOpen={isWinnerModalOpen}
+        championTitle={championTitle ?? String(tournament.championId)}
+        onClose={() => setWinnerModalClosed(true)}
+        onRestart={() => {
+          setWinnerModalClosed(false);
+          setTournament(createInitialTournament(getShuffledParticipants(count)));
+        }}
+      />
     </main>
   );
 }

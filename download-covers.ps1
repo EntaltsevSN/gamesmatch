@@ -35,10 +35,10 @@ $index = 0
 
 foreach ($game in $games) {
     $index++
-    $url = [string]$game.coverUrl
+    $url = [string]$game.url
     if ([string]::IsNullOrWhiteSpace($url)) {
         $failed++
-        Write-Host "[$index/$total] SKIP: missing coverUrl"
+        Write-Host "[$index/$total] SKIP: missing url"
         continue
     }
 

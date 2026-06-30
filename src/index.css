@@ -215,6 +215,9 @@ body {
   padding-left: 20px;
   display: grid;
   gap: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 8px;
 }
 
 #stage-log li {
@@ -278,6 +281,40 @@ body {
   margin: 0;
   font-size: 0.9rem;
   color: #7ef5a0;
+}
+
+.winner-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 16, 0.75);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.winner-modal {
+  width: min(560px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 16px;
+}
+
+.winner-modal h2 {
+  margin: 0 0 8px;
+}
+
+.winner-modal-champion {
+  margin: 0;
+  color: var(--muted);
+}
+
+.winner-modal-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .saved-runs-section {
