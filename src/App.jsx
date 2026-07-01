@@ -7,7 +7,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/ps1" element={<Match />} />
+        <Route path="/ps1" element={<Match platform="ps1" />} />
+        <Route path="/sega-genesis" element={<Match platform="sega-genesis" />} />
+        <Route path="/famicom" element={<Match platform="famicom" />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

@@ -6,6 +6,42 @@ import Stage from "../../components/Stage";
 import Winner from "../../components/Winner";
 import { buildMatchSystem } from "../../config/matchSystem";
 import { ps1Games } from "../../data/ps1";
+import { ps1Games as segaGenesisGames } from "../../data/sega-genesis";
+import { ps1Games as famicomGames } from "../../data/famicom";
+
+type MatchProps = {
+  platform: "ps1" | "sega-genesis" | "famicom";
+};
+
+type GameItem = {
+  id: number;
+  title: string;
+  image: string;
+};
+
+const TOURNAMENTS: Record<
+  MatchProps["platform"],
+  { title: string; subtitle: string; games: GameItem[]; assetFolder: string }
+> = {
+  ps1: {
+    title: "PS1 games match",
+    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
+    games: ps1Games,
+    assetFolder: "ps1",
+  },
+  "sega-genesis": {
+    title: "Sega Genesis games match",
+    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
+    games: segaGenesisGames,
+    assetFolder: "sega-genesis",
+  },
+  famicom: {
+    title: "Famicom games match",
+    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
+    games: famicomGames,
+    assetFolder: "famicom",
+  },
+};
 
 type TournamentState = {
   stageIndex: number;
@@ -51,8 +87,8 @@ function getParticipantsForStage(
   return [winnersPool[0], losersPool[0]].filter((id): id is number => typeof id === "number");
 }
 
-function getShuffledParticipants(count: number): number[] {
-  return shuffleIds(ps1Games.map((game) => game.id)).slice(0, count);
+function getShuffledParticipants(games: GameItem[], count: number): number[] {
+  return shuffleIds(games.map((game) => game.id)).slice(0, count);
 }
 
 function createInitialTournament(ids: number[]): TournamentState {
@@ -70,18 +106,20 @@ function createInitialTournament(ids: number[]): TournamentState {
   };
 }
 
-function Match() {
-  const count = 64;
+function Match({ platform }: MatchProps) {
+  const tournamentConfig = TOURNAMENTS[platform];
+  const { title, subtitle, games, assetFolder } = tournamentConfig;
+  const count = Math.min(64, games.length - (games.length % 2));
   const plan = useMemo(() => buildMatchSystem(count), [count]);
   const [winnerModalClosed, setWinnerModalClosed] = useState(false);
 
-  const [tournament, setTournament] = useState(() => createInitialTournament(getShuffledParticipants(count)));
+  const [tournament, setTournament] = useState(() => createInitialTournament(getShuffledParticipants(games, count)));
 
   const currentStage = plan.stages[tournament.stageIndex];
   const currentPair = tournament.stagePairs[tournament.pairIndex] ?? null;
   const currentPairNumber =
     tournament.stagePairs.length === 0 ? 0 : Math.min(tournament.pairIndex + 1, tournament.stagePairs.length);
-  const championTitle = ps1Games.find((item) => item.id === tournament.championId)?.title;
+  const championTitle = games.find((item) => item.id === tournament.championId)?.title;
   const isWinnerModalOpen = tournament.championId !== null && !winnerModalClosed;
 
   const pickWinner = (winnerId: number) => {
@@ -125,8 +163,8 @@ function Match() {
       const stageNote = `Этап ${prev.stageIndex + 1} завершен. Сыграно пар: ${prev.stagePairs.length}.`;
       const winnerNote =
         championId !== null
-          ? `Турнир завершен. Чемпион: ${ps1Games.find((item) => item.id === championId)?.title ?? championId}.`
-          : `Последний победитель этапа: ${ps1Games.find((item) => item.id === winnerId)?.title ?? winnerId}.`;
+          ? `Турнир завершен. Чемпион: ${games.find((item) => item.id === championId)?.title ?? championId}.`
+          : `Последний победитель этапа: ${games.find((item) => item.id === winnerId)?.title ?? winnerId}.`;
 
       if (championId !== null) {
         return {
@@ -181,8 +219,8 @@ function Match() {
     <main className="app">
       <Header
         showHomeLink
-        title="PS1 games match"
-        subtitle="Выбери победителя в каждом матче и пройди весь турнир до финала."
+        title={title}
+        subtitle={subtitle}
       />
 
       <Stage
@@ -197,6 +235,8 @@ function Match() {
         <GamesDuel
           leftGameId={currentPair[0]}
           rightGameId={currentPair[1]}
+          games={games}
+          assetFolder={assetFolder}
           onPickLeft={() => pickWinner(currentPair[0])}
           onPickRight={() => pickWinner(currentPair[1])}
         />
@@ -214,7 +254,7 @@ function Match() {
         onClose={() => setWinnerModalClosed(true)}
         onRestart={() => {
           setWinnerModalClosed(false);
-          setTournament(createInitialTournament(getShuffledParticipants(count)));
+          setTournament(createInitialTournament(getShuffledParticipants(games, count)));
         }}
       />
     </main>

@@ -8,6 +8,12 @@ function Matches() {
       <Link className="contest-link" to="/ps1">
         Открыть PS1 games match
       </Link>
+      <Link className="contest-link" to="/sega-genesis">
+        Открыть Sega Genesis games match
+      </Link>
+      <Link className="contest-link" to="/famicom">
+        Открыть Famicom games match
+      </Link>
     </section>
   );
 }
