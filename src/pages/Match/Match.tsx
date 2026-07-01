@@ -5,42 +5,10 @@ import History from "../../components/History";
 import Stage from "../../components/Stage";
 import Winner from "../../components/Winner";
 import { buildMatchSystem } from "../../config/matchSystem";
-import { ps1Games } from "../../data/ps1";
-import { ps1Games as segaGenesisGames } from "../../data/sega-genesis";
-import { ps1Games as famicomGames } from "../../data/famicom";
+import { GameItem, PlatformSlug, matchPlatformsBySlug } from "../../config/matchPlatforms";
 
 type MatchProps = {
-  platform: "ps1" | "sega-genesis" | "famicom";
-};
-
-type GameItem = {
-  id: number;
-  title: string;
-  image: string;
-};
-
-const TOURNAMENTS: Record<
-  MatchProps["platform"],
-  { title: string; subtitle: string; games: GameItem[]; assetFolder: string }
-> = {
-  ps1: {
-    title: "PS1 games match",
-    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
-    games: ps1Games,
-    assetFolder: "ps1",
-  },
-  "sega-genesis": {
-    title: "Sega Genesis games match",
-    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
-    games: segaGenesisGames,
-    assetFolder: "sega-genesis",
-  },
-  famicom: {
-    title: "Famicom games match",
-    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
-    games: famicomGames,
-    assetFolder: "famicom",
-  },
+  platform: PlatformSlug;
 };
 
 type TournamentState = {
@@ -107,7 +75,7 @@ function createInitialTournament(ids: number[]): TournamentState {
 }
 
 function Match({ platform }: MatchProps) {
-  const tournamentConfig = TOURNAMENTS[platform];
+  const tournamentConfig = matchPlatformsBySlug[platform];
   const { title, subtitle, games, assetFolder } = tournamentConfig;
   const count = Math.min(64, games.length - (games.length % 2));
   const plan = useMemo(() => buildMatchSystem(count), [count]);

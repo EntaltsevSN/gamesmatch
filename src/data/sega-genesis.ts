@@ -4,7 +4,7 @@ export type GameItem = {
   image: string;
 };
 
-export const ps1Games: GameItem[] = [
+export const segaGenesisGames: GameItem[] = [
   { id: 1, title: "Sonic the Hedgehog", image: "sonic1.png" },
   { id: 2, title: "Sonic the Hedgehog 2", image: "sonic2.png" },
   { id: 3, title: "Sonic the Hedgehog 3", image: "sonic3.png" },

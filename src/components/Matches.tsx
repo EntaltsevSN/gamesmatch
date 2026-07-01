@@ -1,19 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { matchPlatforms } from "../config/matchPlatforms";
 
 function Matches() {
   return (
     <section className="menu-card">
       <p>Доступные матчи:</p>
-      <Link className="contest-link" to="/ps1">
-        Открыть PS1 games match
-      </Link>
-      <Link className="contest-link" to="/sega-genesis">
-        Открыть Sega Genesis games match
-      </Link>
-      <Link className="contest-link" to="/famicom">
-        Открыть Famicom games match
-      </Link>
+      {matchPlatforms.map((platform) => (
+        <Link key={platform.slug} className="contest-link" to={platform.route}>
+          Открыть {platform.title}
+        </Link>
+      ))}
     </section>
   );
 }

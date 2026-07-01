@@ -4,7 +4,7 @@ export type GameItem = {
   image: string;
 };
 
-export const ps1Games: GameItem[] = [
+export const famicomGames: GameItem[] = [
   { id: 1, title: "The Legend of Zelda", image: "zelda.png" },
   { id: 2, title: "Metroid", image: "metroid.png" },
   { id: 3, title: "Super Mario Bros. 2", image: "supermariobros2.png" },
