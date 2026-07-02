@@ -35,6 +35,7 @@ function GameCard({ gameId, games, assetFolder, onPick }: GameCardProps) {
           aria-label={`Выбрать ${game.title}`}
         >
           <img
+            key={game.id}
             className="cover"
             src={imageSrc}
             alt={game.title}

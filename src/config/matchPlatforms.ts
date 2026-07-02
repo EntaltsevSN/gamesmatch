@@ -2,6 +2,8 @@ import { ps1Games } from "../data/ps1";
 import * as segaGenesisData from "../data/sega-genesis";
 import { famicomGames } from "../data/famicom";
 import { ps2Games } from "../data/ps2";
+import { ps3Games } from "../data/ps3";
+import { ps4Games } from "../data/ps4";
 import { ps5Games } from "../data/ps5";
 
 export type GameItem = {
@@ -10,7 +12,7 @@ export type GameItem = {
   image: string;
 };
 
-export type PlatformSlug = "famicom" | "sega-genesis" | "ps1" | "ps2" | "ps5";
+export type PlatformSlug = "famicom" | "sega-genesis" | "ps1" | "ps2" | "ps3" | "ps4" | "ps5";
 
 export type MatchPlatform = {
   slug: PlatformSlug;
@@ -64,6 +66,24 @@ export const matchPlatforms: MatchPlatform[] = [
     assetFolder: "ps2",
   },
   {
+    slug: "ps3",
+    name: "PS3",
+    route: "/ps3",
+    title: "PS3 games match",
+    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
+    games: ps3Games,
+    assetFolder: "ps3",
+  },
+  {
+    slug: "ps4",
+    name: "PS4",
+    route: "/ps4",
+    title: "PS4 games match",
+    subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
+    games: ps4Games,
+    assetFolder: "ps4",
+  },
+  {
     slug: "ps5",
     name: "PS5",
     route: "/ps5",
@@ -79,5 +99,7 @@ export const matchPlatformsBySlug: Record<PlatformSlug, MatchPlatform> = {
   "sega-genesis": matchPlatforms[1],
   ps1: matchPlatforms[2],
   ps2: matchPlatforms[3],
-  ps5: matchPlatforms[4],
+  ps3: matchPlatforms[4],
+  ps4: matchPlatforms[5],
+  ps5: matchPlatforms[6],
 };
