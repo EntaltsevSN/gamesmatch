@@ -1,6 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Match from "./pages/Match/Match";
 import Home from "./pages/Home/Home";
+import MatchesPage from "./pages/Matches/Matches";
+import Rating from "./pages/Rating/Rating";
 import { matchPlatforms } from "./config/matchPlatforms";
 
 function App() {
@@ -8,9 +10,16 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        {matchPlatforms.map((platform) => (
-          <Route key={platform.slug} path={platform.route} element={<Match platform={platform.slug} />} />
-        ))}
+        <Route path="/matches" element={<MatchesPage />} />
+        <Route path="/rating" element={<Rating />} />
+        {matchPlatforms.flatMap((platform) => [
+          <Route key={`${platform.slug}-base`} path={platform.route} element={<Match platform={platform.slug} />} />,
+          <Route
+            key={`${platform.slug}-session`}
+            path={`${platform.route}/:matchId`}
+            element={<Match platform={platform.slug} />}
+          />,
+        ])}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

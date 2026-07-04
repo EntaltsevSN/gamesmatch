@@ -1,4 +1,5 @@
 import React from "react";
+import { Center, Grid, Text } from "@mantine/core";
 import GameCard from "./GameCard";
 
 type GamesDuelProps = {
@@ -12,11 +13,21 @@ type GamesDuelProps = {
 
 function GamesDuel({ leftGameId, rightGameId, games, assetFolder, onPickLeft, onPickRight }: GamesDuelProps) {
   return (
-    <section className="match-section">
-      <GameCard gameId={leftGameId} games={games} assetFolder={assetFolder} onPick={onPickLeft} />
-      <div className="vs">VS</div>
-      <GameCard gameId={rightGameId} games={games} assetFolder={assetFolder} onPick={onPickRight} />
-    </section>
+    <Grid align="stretch">
+      <Grid.Col span={{ base: 12, md: 5 }}>
+        <GameCard gameId={leftGameId} games={games} assetFolder={assetFolder} onPick={onPickLeft} />
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, md: 2 }}>
+        <Center h="100%">
+          <Text fw={800} c="white" fz={36}>
+            VS
+          </Text>
+        </Center>
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, md: 5 }}>
+        <GameCard gameId={rightGameId} games={games} assetFolder={assetFolder} onPick={onPickRight} />
+      </Grid.Col>
+    </Grid>
   );
 }
 

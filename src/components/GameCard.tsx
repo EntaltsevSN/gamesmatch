@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Card, Center, Image, Stack, Text, Title, UnstyledButton } from "@mantine/core";
 
 type GameCardProps = {
   gameId: number;
@@ -8,14 +9,47 @@ type GameCardProps = {
 };
 
 function GameCard({ gameId, games, assetFolder, onPick }: GameCardProps) {
+  const [isClickAnimating, setIsClickAnimating] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const clickTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (clickTimeoutRef.current !== null) {
+        window.clearTimeout(clickTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handlePick = () => {
+    if (!onPick || isClickAnimating) return;
+    setIsClickAnimating(true);
+    clickTimeoutRef.current = window.setTimeout(() => {
+      onPick();
+      setIsClickAnimating(false);
+    }, 120);
+  };
+
+  const cardScale = isClickAnimating ? 0.97 : isHovered ? 1.015 : 1;
+
+  const glassCardStyle = {
+    background: "rgba(21, 29, 53, 0.45)",
+    border: "1px solid rgba(255, 255, 255, 0.16)",
+    backdropFilter: "blur(14px)",
+    WebkitBackdropFilter: "blur(14px)",
+    boxShadow: "0 8px 26px rgba(0, 0, 0, 0.35)",
+  } as const;
+
   const game = games.find((item) => item.id === gameId);
 
   if (!game) {
     return (
-      <article className="contestant">
-        <h3>Игра не найдена</h3>
-        <p>id: {gameId}</p>
-      </article>
+      <Card radius="md" padding="lg" style={glassCardStyle}>
+        <Title order={4} ta="center" c="white">
+          Игра не найдена
+        </Title>
+        <Text c="dimmed">id: {gameId}</Text>
+      </Card>
     );
   }
 
@@ -24,29 +58,56 @@ function GameCard({ gameId, games, assetFolder, onPick }: GameCardProps) {
   const fallbackSrc = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(fallbackSvg)}`;
 
   return (
-    <article className="contestant">
-      <h3>{game.title}</h3>
-      <div className="cover-wrap">
-        <button
-          className="cover-pick-btn"
-          type="button"
-          onClick={onPick}
-          disabled={!onPick}
-          aria-label={`Выбрать ${game.title}`}
-        >
-          <img
-            key={game.id}
-            className="cover"
-            src={imageSrc}
-            alt={game.title}
-            onError={(event) => {
-              event.currentTarget.onerror = null;
-              event.currentTarget.src = fallbackSrc;
+    <Card
+      radius="md"
+      padding="lg"
+      style={{
+        ...glassCardStyle,
+        transform: `scale(${cardScale})`,
+        transition: "transform 140ms ease",
+      }}
+    >
+      <UnstyledButton
+        type="button"
+        onClick={handlePick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        disabled={!onPick}
+        aria-label={`Выбрать ${game.title}`}
+        style={{
+          display: "block",
+          width: "100%",
+          cursor: onPick ? "pointer" : "default",
+        }}
+      >
+        <Stack gap="sm" align="stretch">
+          <Title order={4} ta="center" c="white">
+            {game.title}
+          </Title>
+          <Center
+            style={{
+              width: "100%",
+              borderRadius: 8,
+              overflow: "hidden",
+              background: "#0d1628",
+              border: "1px solid rgba(255, 255, 255, 0.12)",
             }}
-          />
-        </button>
-      </div>
-    </article>
+          >
+            <Image
+              key={game.id}
+              src={imageSrc}
+              alt={game.title}
+              h={300}
+              fit="contain"
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = fallbackSrc;
+              }}
+            />
+          </Center>
+        </Stack>
+      </UnstyledButton>
+    </Card>
   );
 }
 

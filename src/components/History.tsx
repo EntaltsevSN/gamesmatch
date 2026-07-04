@@ -1,17 +1,23 @@
+import { Card, List, Text, Title } from "@mantine/core";
+
 type HistoryProps = {
   items: string[];
 };
 
 function History({ items }: HistoryProps) {
   return (
-    <section className="log-card">
-      <h2>Ход турнира</h2>
-      <ul id="stage-log">
+    <Card withBorder radius="md" padding="md">
+      <Title order={2} mb="sm">
+        Ход турнира
+      </Title>
+      <List spacing="xs">
         {items.map((item, index) => (
-          <li key={`${index}-${item}`}>{item}</li>
+          <List.Item key={`${index}-${item}`}>
+            <Text>{item}</Text>
+          </List.Item>
         ))}
-      </ul>
-    </section>
+      </List>
+    </Card>
   );
 }
 

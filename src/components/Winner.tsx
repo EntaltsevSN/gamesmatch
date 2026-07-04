@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button, Group, Modal, Stack, Text, TextInput } from "@mantine/core";
 
 type WinnerProps = {
   isOpen: boolean;
@@ -32,45 +33,38 @@ function Winner({ isOpen, championTitle, onClose, onRestart }: WinnerProps) {
   };
 
   return (
-    <div className="winner-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="winner-modal-title">
-      <div className="winner-modal">
-        <h2 id="winner-modal-title">Турнир завершен</h2>
-        <p className="winner-modal-champion">Чемпион: {championTitle}</p>
-
-        <div className="save-run-form">
-          <label htmlFor="winner-run-name">Введи своё имя, чтобы сохранить результат:</label>
-          <div className="save-run-row">
-            <input
-              id="winner-run-name"
-              type="text"
-              maxLength={64}
-              placeholder="Твоё имя..."
-              autoComplete="off"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  handleSave();
-                }
-              }}
-            />
-            <button className="save-run-btn" type="button" onClick={handleSave}>
+    <Modal opened={isOpen} onClose={onClose} title="Турнир завершен" centered>
+      <Stack gap="md">
+        <Text c="dimmed">Чемпион: {championTitle}</Text>
+        <TextInput
+          id="winner-run-name"
+          label="Введи своё имя, чтобы сохранить результат"
+          maxLength={64}
+          placeholder="Твоё имя..."
+          autoComplete="off"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              handleSave();
+            }
+          }}
+          rightSection={
+            <Button size="xs" onClick={handleSave}>
               Сохранить
-            </button>
-          </div>
-          {feedback ? <p className="save-run-feedback">{feedback}</p> : null}
-        </div>
-
-        <div className="winner-modal-actions">
-          <button className="restart-btn" type="button" onClick={onRestart}>
-            Начать заново
-          </button>
-          <button className="pick-btn" type="button" onClick={onClose}>
+            </Button>
+          }
+          rightSectionWidth={90}
+        />
+        {feedback ? <Text c="green">{feedback}</Text> : null}
+        <Group justify="space-between">
+          <Button variant="outline" onClick={onClose}>
             Закрыть
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+          <Button onClick={onRestart}>Начать заново</Button>
+        </Group>
+      </Stack>
+    </Modal>
   );
 }
 
