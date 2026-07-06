@@ -34,7 +34,7 @@ export const matchPlatforms: MatchPlatform[] = [
     subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
     games: dendyGames,
     assetFolder: "famicom",
-    logoPath: "/src/assets/images/dendy-logo.png",
+    logoPath: "dendy-logo.png",
   },
   {
     slug: "sega-genesis",
@@ -44,7 +44,7 @@ export const matchPlatforms: MatchPlatform[] = [
     subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
     games: segaGenesisGames,
     assetFolder: "sega-genesis",
-    logoPath: "/src/assets/images/sega-mega-drive-logo.png",
+    logoPath: "sega-mega-drive-logo.png",
   },
   {
     slug: "ps1",
@@ -54,7 +54,7 @@ export const matchPlatforms: MatchPlatform[] = [
     subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
     games: ps1Games,
     assetFolder: "ps1",
-    logoPath: "/src/assets/images/ps1-logo.png",
+    logoPath: "ps1-logo.png",
   },
   {
     slug: "ps2",
@@ -64,7 +64,7 @@ export const matchPlatforms: MatchPlatform[] = [
     subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
     games: ps2Games,
     assetFolder: "ps2",
-    logoPath: "/src/assets/images/ps2-logo.png",
+    logoPath: "ps2-logo.png",
   },
   {
     slug: "ps3",
@@ -74,7 +74,7 @@ export const matchPlatforms: MatchPlatform[] = [
     subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
     games: ps3Games,
     assetFolder: "ps3",
-    logoPath: "/src/assets/images/ps3-logo.png",
+    logoPath: "ps3-logo.png",
   },
   {
     slug: "ps4",
@@ -84,7 +84,7 @@ export const matchPlatforms: MatchPlatform[] = [
     subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
     games: ps4Games,
     assetFolder: "ps4",
-    logoPath: "/src/assets/images/ps4-logo.png",
+    logoPath: "ps4-logo.png",
   },
   {
     slug: "ps5",
@@ -94,7 +94,7 @@ export const matchPlatforms: MatchPlatform[] = [
     subtitle: "Выбери победителя в каждом матче и пройди весь турнир до финала.",
     games: ps5Games,
     assetFolder: "ps5",
-    logoPath: "/src/assets/images/ps5-logo.png",
+    logoPath: "ps5-logo.png",
   },
 ];
 

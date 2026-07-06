@@ -80,6 +80,8 @@ function PlatformCard({ platform, onLaunch, glassCardStyle }: PlatformCardProps)
     : availableSizes[availableSizes.length - 1] ?? DIFFICULTY_OPTIONS[0];
   const [selectedSize, setSelectedSize] = React.useState<string>(String(defaultSize));
 
+  const imageSrc = new URL(`../assets/images/${platform.logoPath}`, import.meta.url).href;
+
   return (
     <Card radius="md" padding="lg" style={glassCardStyle}>
       <Stack gap="sm" align="stretch">
@@ -88,7 +90,7 @@ function PlatformCard({ platform, onLaunch, glassCardStyle }: PlatformCardProps)
         </Title>
 
         <Center>
-          <Image src={platform.logoPath} alt={`${platform.name} logo`} h={92} w="auto" fit="contain" />
+          <Image src={imageSrc} alt={`${platform.name} logo`} h={92} w="auto" fit="contain" />
         </Center>
 
         <Text c="dimmed" size="sm">
