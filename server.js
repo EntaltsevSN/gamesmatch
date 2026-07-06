@@ -8,54 +8,55 @@ import { fileURLToPath } from "url";
 dotenv.config();
 
 const app = express();
-
 const PORT = process.env.PORT || 5000;
+const isProduction = process.env.NODE_ENV === "production";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// middleware
 app.use(express.json());
 
-// CORS нужен в dev-режиме, когда Vite и backend на разных портах
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true
-  })
-);
+// В dev Vite (:5173) и backend (:5000) на разных портах — нужен CORS.
+// В production фронт и API на одном домене — Vite proxy не используется.
+if (!isProduction) {
+  app.use(
+    cors({
+      origin: process.env.FRONTEND_URL || "http://localhost:5173",
+      credentials: true
+    })
+  );
+}
 
-// Схема товара
 const ProductSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true
-    },
-    price: {
-      type: Number,
-      required: true
-    },
-    description: {
-      type: String,
-      default: ""
-    }
+    title: { type: String, required: true },
+    price: { type: Number, required: true },
+    description: { type: String, default: "" }
   },
+  { timestamps: true }
+);
+
+const MatchSchema = new mongoose.Schema(
   {
-    timestamps: true
-  }
+    id: { type: String, required: true },
+    platform: { type: String, required: true },
+    author: { type: String, default: null },
+    champion: { type: Number, default: null },
+    gamesList: [{ id: Number, likes: Number }],
+    match: { stage: Number, step: Number, left: Number },
+    history: mongoose.Schema.Types.Mixed,
+    runtime: mongoose.Schema.Types.Mixed
+  },
+  { timestamps: true }
 );
 
 const Product = mongoose.model("Product", ProductSchema);
+const Match = mongoose.model("Match", MatchSchema);
 
-// Проверка backend
 app.get("/api/health", (req, res) => {
-  res.json({
-    message: "Backend работает"
-  });
+  res.json({ message: "Backend работает" });
 });
 
-// Получить товары
 app.get("/api/products", async (req, res) => {
   try {
     const products = await Product.find().sort({ createdAt: -1 });
@@ -68,7 +69,6 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-// Создать товар
 app.post("/api/products", async (req, res) => {
   try {
     const { title, price, description } = req.body;
@@ -79,12 +79,7 @@ app.post("/api/products", async (req, res) => {
       });
     }
 
-    const product = await Product.create({
-      title,
-      price,
-      description
-    });
-
+    const product = await Product.create({ title, price, description });
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json({
@@ -94,10 +89,41 @@ app.post("/api/products", async (req, res) => {
   }
 });
 
-// Раздача frontend после сборки
-// Работает на Timeweb / production
-if (process.env.NODE_ENV === "production") {
-  const distPath = path.join(__dirname, "../dist");
+app.get("/api/matches", async (req, res) => {
+  try {
+    const matches = await Match.find().sort({ createdAt: -1 });
+    res.json(matches);
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка при получении матчей",
+      error: error.message
+    });
+  }
+});
+
+app.post("/api/matches", async (req, res) => {
+  try {
+    const { id, platform } = req.body;
+
+    if (!id || !platform) {
+      return res.status(400).json({
+        message: "id и platform обязательны"
+      });
+    }
+
+    const match = await Match.create(req.body);
+    res.status(201).json(match);
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка при сохранении матча",
+      error: error.message
+    });
+  }
+});
+
+// Раздача frontend после сборки (Timeweb / production)
+if (isProduction) {
+  const distPath = path.join(__dirname, "dist");
 
   app.use(express.static(distPath));
 
@@ -114,18 +140,11 @@ const start = async () => {
         process.env.MONGODB_PASSWORD
       )}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DBNAME}?authSource=admin&directConnection=true`;
 
-      await mongoose.connect(mongoUri);
-
-      console.log("MongoDB подключена!");
-      
-      const collections = await mongoose.connection.db.listCollections().toArray();
-      
-      
-      console.log("Коллекции в базе:");
-      console.log(collections.map((collection) => collection.name));
+    await mongoose.connect(mongoUri);
+    console.log("MongoDB подключена");
 
     app.listen(PORT, "0.0.0.0", () => {
-      console.log(`Server запущен на порту ${PORT}`);
+      console.log(`Server запущен на порту ${PORT} (${isProduction ? "production" : "development"})`);
     });
   } catch (error) {
     console.error("Ошибка запуска сервера:", error);
