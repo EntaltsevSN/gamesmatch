@@ -1,61 +1,136 @@
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const HOST = "127.0.0.1";
-const PORT = 5500;
-const ROOT = __dirname;
+dotenv.config();
 
-const MIME_TYPES = {
-  ".html": "text/html; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
-  ".js": "application/javascript; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
-  ".png": "image/png",
-  ".jpg": "image/jpeg",
-  ".jpeg": "image/jpeg",
-  ".gif": "image/gif",
-  ".svg": "image/svg+xml",
-  ".ico": "image/x-icon"
-};
+const app = express();
 
-function send(res, statusCode, content, contentType = "text/plain; charset=utf-8") {
-  res.writeHead(statusCode, { "Content-Type": contentType });
-  res.end(content);
-}
+const PORT = process.env.PORT || 5000;
 
-function resolvePath(urlPath) {
-  const sanitized = urlPath.split("?")[0];
-  const relativePath = sanitized === "/" ? "/index.html" : sanitized;
-  const normalizedPath = path.normalize(relativePath).replace(/^(\.\.[/\\])+/, "");
-  return path.join(ROOT, normalizedPath);
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const server = http.createServer((req, res) => {
-  const filePath = resolvePath(req.url || "/");
+// middleware
+app.use(express.json());
 
-  if (!filePath.startsWith(ROOT)) {
-    send(res, 403, "Forbidden");
-    return;
-  }
+// CORS нужен в dev-режиме, когда Vite и backend на разных портах
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true
+  })
+);
 
-  fs.readFile(filePath, (error, content) => {
-    if (error) {
-      if (error.code === "ENOENT") {
-        send(res, 404, "Not found");
-        return;
-      }
-      send(res, 500, "Server error");
-      return;
+// Схема товара
+const ProductSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true
+    },
+    price: {
+      type: Number,
+      required: true
+    },
+    description: {
+      type: String,
+      default: ""
     }
+  },
+  {
+    timestamps: true
+  }
+);
 
-    const ext = path.extname(filePath).toLowerCase();
-    const type = MIME_TYPES[ext] || "application/octet-stream";
-    send(res, 200, content, type);
+const Product = mongoose.model("Product", ProductSchema);
+
+// Проверка backend
+app.get("/api/health", (req, res) => {
+  res.json({
+    message: "Backend работает"
   });
 });
 
-server.listen(PORT, HOST, () => {
-  console.log(`Server started: http://${HOST}:${PORT}`);
-  console.log("Open this URL in browser to run tournament.");
+// Получить товары
+app.get("/api/products", async (req, res) => {
+  try {
+    const products = await Product.find().sort({ createdAt: -1 });
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка при получении товаров",
+      error: error.message
+    });
+  }
 });
+
+// Создать товар
+app.post("/api/products", async (req, res) => {
+  try {
+    const { title, price, description } = req.body;
+
+    if (!title || !price) {
+      return res.status(400).json({
+        message: "Название и цена обязательны"
+      });
+    }
+
+    const product = await Product.create({
+      title,
+      price,
+      description
+    });
+
+    res.status(201).json(product);
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка при создании товара",
+      error: error.message
+    });
+  }
+});
+
+// Раздача frontend после сборки
+// Работает на Timeweb / production
+if (process.env.NODE_ENV === "production") {
+  const distPath = path.join(__dirname, "../dist");
+
+  app.use(express.static(distPath));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
+
+const start = async () => {
+  try {
+    const mongoUri =
+      process.env.MONGO_URI ||
+      `mongodb://${encodeURIComponent(process.env.MONGODB_USERNAME)}:${encodeURIComponent(
+        process.env.MONGODB_PASSWORD
+      )}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DBNAME}?authSource=admin&directConnection=true`;
+
+      await mongoose.connect(mongoUri);
+
+      console.log("MongoDB подключена!");
+      
+      const collections = await mongoose.connection.db.listCollections().toArray();
+      
+      
+      console.log("Коллекции в базе:");
+      console.log(collections.map((collection) => collection.name));
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server запущен на порту ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Ошибка запуска сервера:", error);
+    process.exit(1);
+  }
+};
+
+start();
