@@ -7,7 +7,6 @@ import Rating from "./pages/Rating/Rating";
 import { matchPlatforms } from "./config/matchPlatforms";
 
 function App() {
-
   useEffect(() => {
     fetch("/api/matches")
       .then(response => response.json())
