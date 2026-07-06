@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -9,10 +10,11 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const isProduction = process.env.NODE_ENV === "production";
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const distPath = path.join(__dirname, "dist");
+const distExists = fs.existsSync(distPath);
+const isProduction = process.env.NODE_ENV === "production" || distExists;
 
 app.use(express.json());
 
@@ -121,13 +123,12 @@ app.post("/api/matches", async (req, res) => {
   }
 });
 
-// Раздача frontend после сборки (Timeweb / production)
-if (isProduction) {
-  const distPath = path.join(__dirname, "dist");
-
+// Раздача frontend после сборки.
+// Важно: catch-all только для НЕ-api путей — иначе nginx/статика может перехватить раньше Node.
+if (isProduction && distExists) {
   app.use(express.static(distPath));
 
-  app.get("*", (req, res) => {
+  app.get(/^(?!\/api).*/, (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
@@ -145,6 +146,9 @@ const start = async () => {
 
     app.listen(PORT, "0.0.0.0", () => {
       console.log(`Server запущен на порту ${PORT} (${isProduction ? "production" : "development"})`);
+      if (isProduction && !distExists) {
+        console.warn("Папка dist не найдена. Запусти: npm run build");
+      }
     });
   } catch (error) {
     console.error("Ошибка запуска сервера:", error);
