@@ -11,15 +11,10 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     credentials: true
   })
 );
-
-// Проверочный роут
-app.get("/", (req, res) => {
-  res.json({ message: "Backend работает" });
-});
 
 // Схема MongoDB
 const ProductSchema = new mongoose.Schema(
@@ -44,6 +39,38 @@ const ProductSchema = new mongoose.Schema(
 
 // Коллекция в MongoDB будет называться products
 const Product = mongoose.model("Product", ProductSchema);
+
+const MatchSchema = new mongoose.Schema(
+  {
+    id: { type: String, required: true },
+    platform: { type: String, required: true },
+    author: { type: String, default: null },
+    champion: { type: Number, default: null },
+    gamesList: [
+      {
+        id: Number,
+        likes: Number
+      }
+    ],
+    match: {
+      stage: Number,
+      step: Number,
+      left: Number
+    },
+    history: mongoose.Schema.Types.Mixed,
+    runtime: mongoose.Schema.Types.Mixed
+  },
+  {
+    timestamps: true
+  }
+);
+
+const Match = mongoose.model("Match", MatchSchema);
+
+// Проверочный роут
+app.get("/", (req, res) => {
+  res.json({ message: "Backend работает" });
+});
 
 // Получить все товары
 app.get("/api/products", async (req, res) => {
@@ -79,6 +106,40 @@ app.post("/api/products", async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: "Ошибка при создании товара",
+      error: error.message
+    });
+  }
+});
+
+// Сохранить результат матча
+app.post("/api/matches", async (req, res) => {
+  try {
+    const { id, platform } = req.body;
+
+    if (!id || !platform) {
+      return res.status(400).json({
+        message: "id и platform обязательны"
+      });
+    }
+
+    const match = await Match.create(req.body);
+    res.status(201).json(match);
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка при сохранении матча",
+      error: error.message
+    });
+  }
+});
+
+// Получить все сыгранные матчи
+app.get("/api/matches", async (req, res) => {
+  try {
+    const matches = await Match.find().sort({ createdAt: -1 });
+    res.json(matches);
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка при получении матчей",
       error: error.message
     });
   }

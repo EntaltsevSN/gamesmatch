@@ -5,17 +5,20 @@ type WinnerProps = {
   isOpen: boolean;
   championTitle: string;
   onClose: () => void;
+  onSave: (name: string) => Promise<void>;
   onRestart: () => void;
 };
 
-function Winner({ isOpen, championTitle, onClose, onRestart }: WinnerProps) {
+function Winner({ isOpen, championTitle, onClose, onSave, onRestart }: WinnerProps) {
   const [name, setName] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setName("");
       setFeedback("");
+      setIsSaving(false);
     }
   }, [isOpen, championTitle]);
 
@@ -23,13 +26,22 @@ function Winner({ isOpen, championTitle, onClose, onRestart }: WinnerProps) {
     return null;
   }
 
-  const handleSave = () => {
+  const handleSave = async () => {
     const trimmed = name.trim();
     if (!trimmed) {
       setFeedback("Введи имя перед сохранением.");
       return;
     }
-    setFeedback(`Прохождение "${trimmed}" сохранено (демо).`);
+
+    setIsSaving(true);
+    try {
+      await onSave(trimmed);
+      setFeedback(`Прохождение "${trimmed}" сохранено.`);
+    } catch {
+      setFeedback("Не удалось сохранить результат. Попробуй ещё раз.");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -50,13 +62,13 @@ function Winner({ isOpen, championTitle, onClose, onRestart }: WinnerProps) {
             }
           }}
           rightSection={
-            <Button size="xs" onClick={handleSave}>
+            <Button size="xs" onClick={handleSave} loading={isSaving} disabled={isSaving}>
               Сохранить
             </Button>
           }
           rightSectionWidth={90}
         />
-        {feedback ? <Text c="green">{feedback}</Text> : null}
+        {feedback ? <Text c={feedback.includes("Не удалось") ? "red" : "green"}>{feedback}</Text> : null}
         <Group justify="space-between">
           <Button variant="outline" onClick={onClose}>
             Закрыть

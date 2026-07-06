@@ -1,6 +1,7 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Card, Container, Stack, Text, Title } from "@mantine/core";
 import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { createMatch } from "../../api/matches";
 import GamesDuel from "../../components/GamesDuel";
 import Header from "../../components/Header";
 import MatchLikesTable from "../../components/MatchLikesTable";
@@ -224,6 +225,61 @@ function getGamesLeftInWholeMatch(
   return Math.max(1, aliveBeforeCurrentStep - eliminatedInCurrentStage);
 }
 
+function buildPersistedPayload(params: {
+  matchId: string;
+  platform: PlatformSlug;
+  author: string | null;
+  tournament: TournamentState;
+  count: number;
+  winnerModalClosed: boolean;
+  gameLikes: Record<number, number>;
+}): PersistedMatchSession {
+  const { matchId, platform, author, tournament, count, winnerModalClosed, gameLikes } = params;
+  const stageEntries = Object.entries(tournament.stageStepsByIndex) as Array<
+    [string, { type: "winners" | "losers" | "final"; steps: Array<[number, number]> }]
+  >;
+  const stage = tournament.stageIndex + 1;
+  const step = tournament.stagePairs.length === 0 ? 0 : Math.min(tournament.pairIndex + 1, tournament.stagePairs.length);
+  const left = tournament.championId !== null ? 1 : Math.max(0, (tournament.stagePairs.length - tournament.pairIndex) * 2);
+  const gamesList = Array.from(
+    new Set(
+      stageEntries
+        .map(([, stageData]) => stageData)
+        .flatMap((stageItem) => stageItem.steps)
+        .flatMap((pair) => pair)
+    )
+  ).map((id) => ({ id, likes: gameLikes[id] ?? 0 }));
+
+  return {
+    id: matchId,
+    platform,
+    author,
+    champion: tournament.championId,
+    gamesList,
+    match: {
+      stage,
+      step,
+      left,
+    },
+    history: {
+      stages: stageEntries.reduce<
+        Record<number, { type: "winners" | "losers" | "final"; steps: Array<[number, number]> }>
+      >((acc, [index, stageData]) => {
+        acc[Number(index) + 1] = stageData;
+        return acc;
+      }, {}),
+    },
+    runtime: {
+      version: STORAGE_VERSION,
+      platform,
+      count,
+      winnerModalClosed,
+      tournament,
+      updatedAt: new Date().toISOString(),
+    },
+  };
+}
+
 function Match({ platform }: MatchProps) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -241,6 +297,7 @@ function Match({ platform }: MatchProps) {
   const [count, setCount] = useState(requestedCount);
   const plan = useMemo(() => buildMatchSystem(count), [count]);
   const [winnerModalClosed, setWinnerModalClosed] = useState(false);
+  const [author, setAuthor] = useState<string | null>(null);
   const [isSessionHydrated, setIsSessionHydrated] = useState(false);
   const [gameLikes, setGameLikes] = useState<Record<number, number>>({});
 
@@ -264,6 +321,7 @@ function Match({ platform }: MatchProps) {
           : requestedCount;
       setCount(storedCount);
       setWinnerModalClosed(stored.runtime.winnerModalClosed);
+      setAuthor(stored.author);
       setTournament(stored.runtime.tournament);
       setGameLikes(Object.fromEntries(stored.gamesList.map(({ id, likes }) => [id, likes])));
       setIsSessionHydrated(true);
@@ -272,6 +330,7 @@ function Match({ platform }: MatchProps) {
 
     setCount(requestedCount);
     setWinnerModalClosed(false);
+    setAuthor(null);
     setGameLikes({});
     setTournament(createInitialTournament(getShuffledParticipants(games, requestedCount), "winners"));
     setIsSessionHydrated(true);
@@ -280,51 +339,35 @@ function Match({ platform }: MatchProps) {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (!isSessionHydrated) return;
-    const stageEntries = Object.entries(tournament.stageStepsByIndex) as Array<
-      [string, { type: "winners" | "losers" | "final"; steps: Array<[number, number]> }]
-    >;
-    const stage = tournament.stageIndex + 1;
-    const step = tournament.stagePairs.length === 0 ? 0 : Math.min(tournament.pairIndex + 1, tournament.stagePairs.length);
-    const left = tournament.championId !== null ? 1 : Math.max(0, (tournament.stagePairs.length - tournament.pairIndex) * 2);
-    const gamesList = Array.from(
-      new Set(
-        stageEntries
-          .map(([, stageData]) => stageData)
-          .flatMap((stageItem) => stageItem.steps)
-          .flatMap((pair) => pair)
-      )
-    ).map((id) => ({ id, likes: gameLikes[id] ?? 0 }));
-
-    const payload: PersistedMatchSession = {
-      id: matchId,
+    const payload = buildPersistedPayload({
+      matchId,
       platform,
-      author: null,
-      champion: tournament.championId,
-      gamesList,
-      match: {
-        stage,
-        step,
-        left,
-      },
-      history: {
-        stages: stageEntries.reduce<
-          Record<number, { type: "winners" | "losers" | "final"; steps: Array<[number, number]> }>
-        >((acc, [index, stageData]) => {
-          acc[Number(index) + 1] = stageData;
-          return acc;
-        }, {}),
-      },
-      runtime: {
-        version: STORAGE_VERSION,
+      author,
+      tournament,
+      count,
+      winnerModalClosed,
+      gameLikes,
+    });
+    window.localStorage.setItem(storageKey, JSON.stringify(payload));
+  }, [storageKey, platform, matchId, count, tournament, winnerModalClosed, isSessionHydrated, gameLikes, author]);
+
+  const handleSaveRun = useCallback(
+    async (authorName: string) => {
+      const payload = buildPersistedPayload({
+        matchId,
         platform,
+        author: authorName,
+        tournament,
         count,
         winnerModalClosed,
-        tournament,
-        updatedAt: new Date().toISOString(),
-      },
-    };
-    window.localStorage.setItem(storageKey, JSON.stringify(payload));
-  }, [storageKey, platform, matchId, count, tournament, winnerModalClosed, isSessionHydrated, gameLikes]);
+        gameLikes,
+      });
+      window.localStorage.setItem(storageKey, JSON.stringify(payload));
+      setAuthor(authorName);
+      await createMatch(payload);
+    },
+    [matchId, platform, tournament, count, winnerModalClosed, gameLikes, storageKey]
+  );
 
   const currentStage = plan.stages[tournament.stageIndex];
   const currentPair = tournament.stagePairs[tournament.pairIndex] ?? null;
@@ -492,8 +535,10 @@ function Match({ platform }: MatchProps) {
           isOpen={isWinnerModalOpen}
           championTitle={championTitle ?? String(tournament.championId)}
           onClose={() => setWinnerModalClosed(true)}
+          onSave={handleSaveRun}
           onRestart={() => {
             setWinnerModalClosed(false);
+            setAuthor(null);
             setGameLikes({});
             setTournament(createInitialTournament(getShuffledParticipants(games, count), "winners"));
           }}
