@@ -133,27 +133,65 @@ if (isProduction && distExists) {
   });
 }
 
-const start = async () => {
+const getMongoUri = () => {
+  if (process.env.MONGO_URI) {
+    return process.env.MONGO_URI;
+  }
+
+  if (process.env.MONGO_URL) {
+    return process.env.MONGO_URL;
+  }
+
+  const {
+    MONGODB_USERNAME,
+    MONGODB_PASSWORD,
+    MONGODB_HOST,
+    MONGODB_PORT,
+    MONGODB_DBNAME
+  } = process.env;
+
+  if (
+    !MONGODB_USERNAME ||
+    !MONGODB_PASSWORD ||
+    !MONGODB_HOST ||
+    !MONGODB_PORT ||
+    !MONGODB_DBNAME
+  ) {
+    throw new Error(
+      "Не заданы переменные MongoDB. Укажи MONGO_URI или MONGO_URL, либо MONGODB_USERNAME/PASSWORD/HOST/PORT/DBNAME"
+    );
+  }
+
+  return `mongodb://${encodeURIComponent(MONGODB_USERNAME)}:${encodeURIComponent(
+    MONGODB_PASSWORD
+  )}@${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_DBNAME}?authSource=admin&directConnection=true`;
+};
+
+const connectMongo = async () => {
   try {
-    const mongoUri =
-      process.env.MONGO_URI ||
-      `mongodb://${encodeURIComponent(process.env.MONGODB_USERNAME)}:${encodeURIComponent(
-        process.env.MONGODB_PASSWORD
-      )}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DBNAME}?authSource=admin&directConnection=true`;
+    const mongoUri = getMongoUri();
 
     await mongoose.connect(mongoUri);
+
     console.log("MongoDB подключена");
 
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`Server запущен на порту ${PORT} (${isProduction ? "production" : "development"})`);
-      if (isProduction && !distExists) {
-        console.warn("Папка dist не найдена. Запусти: npm run build");
-      }
-    });
+    const collections = await mongoose.connection.db.listCollections().toArray();
+
+    console.log("Коллекции в базе:");
+    console.log(collections.map((collection) => collection.name));
   } catch (error) {
-    console.error("Ошибка запуска сервера:", error);
-    process.exit(1);
+    console.error("Ошибка подключения MongoDB:", error.message);
   }
 };
 
-start();
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(
+    `Server запущен на порту ${PORT} (${isProduction ? "production" : "development"})`
+  );
+
+  if (isProduction && !distExists) {
+    console.warn("Папка dist не найдена. Запусти: npm run build");
+  }
+
+  connectMongo();
+});
