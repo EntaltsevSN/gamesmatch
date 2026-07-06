@@ -2,771 +2,451 @@
   "games": [
     {
       "id": 1,
-      "title": "Grand Theft Auto V",
-      "image": "grandtheftautov.png",
-      "url": "https://images.pushsquare.com/4737cb9ce78c9/grand-theft-auto-v-cover.cover_large.jpg"
+      "title": "Pokemon Crystal",
+      "image": "pokemoncrystal.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pokemon%20-%20Crystal%20Version%20%28USA%29.png"
     },
     {
       "id": 2,
-      "title": "Red Dead Redemption 2",
-      "image": "reddeadredemption2.png",
-      "url": "https://images.pushsquare.com/7efe4c6a07f2e/red-dead-redemption-2-cover.cover_large.jpg"
+      "title": "Pokemon Gold",
+      "image": "pokemongold.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pokemon%20-%20Gold%20Version%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 3,
-      "title": "Marvel's Spider-Man",
-      "image": "marvelsspiderman.png",
-      "url": "https://images.pushsquare.com/41790bf1b773b/marvels-spider-man-cover.cover_large.jpg"
+      "title": "Pokemon Silver",
+      "image": "pokemonsilver.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pokemon%20-%20Silver%20Version%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 4,
-      "title": "God of War",
-      "image": "godofwar.png",
-      "url": "https://images.pushsquare.com/ae86226a4f29b/god-of-war-cover.cover_large.jpg"
+      "title": "The Legend of Zelda: Link's Awakening DX",
+      "image": "zeldalinksawakeningdx.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Link%27s%20Awakening%20DX%20%28USA%2C%20Europe%29%20%28Rev%202%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 5,
-      "title": "Uncharted 4: A Thief's End",
-      "image": "uncharted4athiefsend.png",
-      "url": "https://images.pushsquare.com/f28e31f45dd61/uncharted-4-a-thiefs-end-cover.cover_large.jpg"
+      "title": "The Legend of Zelda: Oracle of Ages",
+      "image": "zeldaoracleofages.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Oracle%20of%20Ages%20%28USA%2C%20Australia%29.png"
     },
     {
       "id": 6,
-      "title": "The Last of Us Remastered",
-      "image": "thelastofusremastered.png",
-      "url": "https://images.pushsquare.com/06a0ca4a20dc9/last-of-us-remastered-cover.cover_large.jpg"
+      "title": "The Legend of Zelda: Oracle of Seasons",
+      "image": "zeldaoracleofseasons.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Oracle%20of%20Seasons%20%28USA%2C%20Australia%29.png"
     },
     {
       "id": 7,
-      "title": "The Last of Us Part II",
-      "image": "thelastofuspart2.png",
-      "url": "https://images.pushsquare.com/c071b54d1a200/last-of-us-part-ii-cover.cover_large.jpg"
+      "title": "Super Mario Bros. Deluxe",
+      "image": "supermariobrosdeluxe.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Super%20Mario%20Bros.%20Deluxe%20%28USA%2C%20Europe%29.png"
     },
     {
       "id": 8,
-      "title": "Horizon Zero Dawn",
-      "image": "horizonzerodawn.png",
-      "url": "https://images.pushsquare.com/1de6d5c4dc535/horizon-zero-dawn-cover.cover_large.jpg"
+      "title": "Wario Land 3",
+      "image": "warioland3.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Wario%20Land%203%20%28World%29%20%28En%2CJa%29.png"
     },
     {
       "id": 9,
-      "title": "Bloodborne",
-      "image": "bloodborne.png",
-      "url": "https://images.pushsquare.com/ca10c267664ca/bloodborne-cover.cover_large.jpg"
+      "title": "Wario Land II",
+      "image": "warioland2.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Wario%20Land%20II%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 10,
-      "title": "Ghost of Tsushima",
-      "image": "ghostoftsushima.png",
-      "url": "https://images.pushsquare.com/58c3c6b2fa46a/ghost-of-tsushima-cover.cover_large.jpg"
+      "title": "Donkey Kong Country",
+      "image": "donkeykongcountry.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Donkey%20Kong%20Country%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png"
     },
     {
       "id": 11,
-      "title": "The Witcher 3: Wild Hunt",
-      "image": "thewitcher3wildhunt.png",
-      "url": "https://images.pushsquare.com/a606276ea6a46/witcher-3-wild-hunt-cover.cover_large.jpg"
+      "title": "Tetris DX",
+      "image": "tetrisdx.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Tetris%20DX%20%28World%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 12,
-      "title": "Minecraft: PlayStation 4 Edition",
-      "image": "minecraftplaystation4edition.png",
-      "url": "https://images.pushsquare.com/83c6354db18f1/call-of-duty-black-ops-iii-cover.cover_large.jpg"
+      "title": "Metal Gear Solid",
+      "image": "metalgearsolid.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Metal%20Gear%20Solid%20%28USA%29.png"
     },
     {
       "id": 13,
-      "title": "Call of Duty: Black Ops III",
-      "image": "callofdutyblackops3.png",
-      "url": "https://images.pushsquare.com/205885977a137/call-of-duty-wwii-cover.cover_large.jpg"
+      "title": "Mario Tennis",
+      "image": "mariotennis.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mario%20Tennis%20%28USA%29.png"
     },
     {
       "id": 14,
-      "title": "Call of Duty: WWII",
-      "image": "callofdutyww2.png",
-      "url": "https://images.pushsquare.com/9e2d60b8daf40/call-of-duty-modern-warfare-2-cover.cover_large.jpg"
+      "title": "Mario Golf",
+      "image": "mariogolf.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mario%20Golf%20%28USA%29.png"
     },
     {
       "id": 15,
-      "title": "Call of Duty: Modern Warfare",
-      "image": "callofdutymodernwarfare.png",
-      "url": "https://images.pushsquare.com/55315e56f80a3/call-of-duty-modern-warfare-cover.cover_large.jpg"
+      "title": "Pokemon Trading Card Game",
+      "image": "pokemontradingcardgame.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pokemon%20Trading%20Card%20Game%20%28USA%2C%20Australia%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 16,
-      "title": "Call of Duty: Black Ops 4",
-      "image": "callofdutyblackops4.png",
-      "url": "https://images.pushsquare.com/4965efb69f86f/call-of-duty-black-ops-4-cover.cover_large.jpg"
+      "title": "Pokemon Pinball",
+      "image": "pokemonpinball.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pokemon%20Pinball%20%28USA%2C%20Australia%29%20%28Rumble%20Version%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 17,
-      "title": "FIFA 18",
-      "image": "fifa18.png",
-      "url": "https://images.pushsquare.com/7e20ef95bf9b0/fifa-18-cover.cover_large.jpg"
+      "title": "Pokemon Puzzle Challenge",
+      "image": "pokemonpuzzlechallenge.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pokemon%20Puzzle%20Challenge%20%28USA%2C%20Australia%29.png"
     },
     {
       "id": 18,
-      "title": "FIFA 17",
-      "image": "fifa17.png",
-      "url": "https://images.pushsquare.com/3929d02b4efcd/fifa-17-cover.cover_large.jpg"
+      "title": "Dragon Warrior Monsters",
+      "image": "dragonwarriormonsters.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Dragon%20Warrior%20Monsters%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 19,
-      "title": "FIFA 19",
-      "image": "fifa19.png",
-      "url": "https://images.pushsquare.com/1b8e13cc620c0/fifa-19-cover.cover_large.jpg"
+      "title": "Dragon Warrior Monsters 2: Cobi's Journey",
+      "image": "dragonwarriormonsters2cobisjourney.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Dragon%20Warrior%20Monsters%202%20-%20Cobi%27s%20Journey%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 20,
-      "title": "FIFA 20",
-      "image": "fifa20.png",
-      "url": "https://images.pushsquare.com/100a2c608928b/fifa-20-cover.cover_large.jpg"
+      "title": "Dragon Warrior Monsters 2: Tara's Adventure",
+      "image": "dragonwarriormonsters2tarasadventure.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Dragon%20Warrior%20Monsters%202%20-%20Tara%27s%20Adventure%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 21,
-      "title": "NBA 2K18",
-      "image": "nba2k18.png",
-      "url": "https://images.pushsquare.com/99f0fd7b27ca7/nba-2k18-cover.cover_large.jpg"
+      "title": "Dragon Warrior I & II",
+      "image": "dragonwarrior1and2.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Dragon%20Warrior%20I%20_%20II%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 22,
-      "title": "Battlefield 1",
-      "image": "battlefield1.png",
-      "url": "https://images.pushsquare.com/90bd0ee5f17e9/battlefield-1-cover.cover_large.jpg"
+      "title": "Dragon Warrior III",
+      "image": "dragonwarrior3.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Dragon%20Warrior%20III%20%28USA%29.png"
     },
     {
       "id": 23,
-      "title": "Star Wars Battlefront II",
-      "image": "starwarsbattlefront2.png",
-      "url": "https://images.pushsquare.com/97d147136d3b0/star-wars-battlefront-2-cover.cover_large.jpg"
+      "title": "Harvest Moon GBC",
+      "image": "harvestmoongbc.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Harvest%20Moon%20GBC%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 24,
-      "title": "Destiny",
-      "image": "destiny.png",
-      "url": "https://images.pushsquare.com/46e866cf146da/destiny-cover.cover_large.jpg"
+      "title": "Harvest Moon 2 GBC",
+      "image": "harvestmoon2gbc.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Harvest%20Moon%202%20GBC%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 25,
-      "title": "Destiny 2",
-      "image": "destiny2.png",
-      "url": "https://images.pushsquare.com/54586b2f3cd08/destiny-2-cover.cover_large.jpg"
+      "title": "Harvest Moon 3 GBC",
+      "image": "harvestmoon3gbc.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Harvest%20Moon%203%20GBC%20%28USA%29.png"
     },
     {
       "id": 26,
-      "title": "Monster Hunter: World",
-      "image": "monsterhunterworld.png",
-      "url": "https://images.pushsquare.com/8bdf2ac4ca0fc/monster-hunter-world-cover.cover_large.jpg"
+      "title": "Shantae",
+      "image": "shantae.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Shantae%20%28USA%29.png"
     },
     {
       "id": 27,
-      "title": "Persona 5",
-      "image": "persona5.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Persona%205%20%28USA%29.png"
+      "title": "Kirby: Tilt 'n' Tumble",
+      "image": "kirbytiltntumble.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Kirby%20-%20Tilt%20%27n%27%20Tumble%20%28USA%29.png"
     },
     {
       "id": 28,
-      "title": "Persona 5 Royal",
-      "image": "persona5royal.png",
-      "url": "https://images.pushsquare.com/eeeefd9b1f5e6/persona-5-royal-cover.cover_large.jpg"
+      "title": "Resident Evil Gaiden",
+      "image": "residentevilgaiden.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Resident%20Evil%20Gaiden%20%28USA%29.png"
     },
     {
       "id": 29,
-      "title": "Dark Souls III",
-      "image": "darksouls3.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Dark%20Souls%20III%20%28Japan%29.png"
+      "title": "Bionic Commando: Elite Forces",
+      "image": "bioniccommandoeliteforces.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bionic%20Commando%20-%20Elite%20Forces%20%28USA%2C%20Australia%29.png"
     },
     {
       "id": 30,
-      "title": "Resident Evil 7: Biohazard",
-      "image": "residentevil7biohazard.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Biohazard%207%20-%20Resident%20Evil%20%28Japan%29.png"
+      "title": "Mega Man Xtreme",
+      "image": "megamanxtreme.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mega%20Man%20Xtreme%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 31,
-      "title": "NieR: Automata",
-      "image": "nierautomata.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/NieR%20Automata%20%28Japan%29.png"
+      "title": "Mega Man Xtreme 2",
+      "image": "megamanxtreme2.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mega%20Man%20Xtreme%202%20%28USA%2C%20Europe%29.png"
     },
     {
       "id": 32,
-      "title": "Final Fantasy XV",
-      "image": "finalfantasy15.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Final%20Fantasy%20XV%20%28Japan%29.png"
+      "title": "Rayman",
+      "image": "rayman.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Rayman%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%29.png"
     },
     {
       "id": 33,
-      "title": "Resident Evil 2",
-      "image": "residentevil2.png",
-      "url": "https://images.pushsquare.com/86d9c94c3b445/resident-evil-2-cover.cover_large.jpg"
+      "title": "Rayman 2",
+      "image": "rayman2.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Rayman%202%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png"
     },
     {
       "id": 34,
-      "title": "Resident Evil 3",
-      "image": "residentevil3.png",
-      "url": "https://images.pushsquare.com/90f6c8925ebca/resident-evil-3-cover.cover_large.jpg"
+      "title": "Tony Hawk's Pro Skater",
+      "image": "tonyhawksproskater.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Tony%20Hawk%27s%20Pro%20Skater%20%28USA%2C%20Europe%29.png"
     },
     {
       "id": 35,
-      "title": "Resident Evil 4",
-      "image": "residentevil4.png",
-      "url": "https://images.pushsquare.com/c6f52e07a53b5/resident-evil-4-cover.cover_large.jpg"
+      "title": "Tony Hawk's Pro Skater 2",
+      "image": "tonyhawksproskater2.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Tony%20Hawk%27s%20Pro%20Skater%202%20%28USA%2C%20Europe%29.png"
     },
     {
       "id": 36,
-      "title": "Sekiro: Shadows Die Twice",
-      "image": "sekiroshadowsdietwice.png",
-      "url": "https://images.pushsquare.com/d308f98ce2278/sekiro-shadows-die-twice-cover.cover_large.jpg"
+      "title": "Tony Hawk's Pro Skater 3",
+      "image": "tonyhawksproskater3.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Tony%20Hawk%27s%20Pro%20Skater%203%20%28USA%2C%20Europe%29.png"
     },
     {
       "id": 37,
-      "title": "Elden Ring",
-      "image": "eldenring.png",
-      "url": "https://images.pushsquare.com/b470c9486f247/elden-ring-cover.cover_large.jpg"
+      "title": "Street Fighter Alpha: Warriors' Dreams",
+      "image": "streetfighteralpha.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Street%20Fighter%20Alpha%20-%20Warriors%27%20Dreams%20%28USA%29.png"
     },
     {
       "id": 38,
-      "title": "Metal Gear Solid V: The Phantom Pain",
-      "image": "metalgearsolid5thephantompain.png",
-      "url": "https://images.pushsquare.com/0f781f9d61add/metal-gear-solid-v-the-phantom-pain-cover.cover_large.jpg"
+      "title": "Mortal Kombat 4",
+      "image": "mortalkombat4.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mortal%20Kombat%204%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 39,
-      "title": "Fallout 4",
-      "image": "fallout4.png",
-      "url": "https://images.pushsquare.com/dc868d52467f4/fallout-4-cover.cover_large.jpg"
+      "title": "Mr. Driller",
+      "image": "mrdriller.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mr.%20Driller%20%28USA%29.png"
     },
     {
       "id": 40,
-      "title": "Assassin's Creed Odyssey",
-      "image": "assassinscreedodyssey.png",
-      "url": "https://images.pushsquare.com/11693a78049a6/assassins-creed-odyssey-cover.cover_large.jpg"
+      "title": "R-Type DX",
+      "image": "rtypedx.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/R-Type%20DX%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 41,
-      "title": "Assassin's Creed Origins",
-      "image": "assassinscreedorigins.png",
-      "url": "https://images.pushsquare.com/3cadc62102cf6/assassins-creed-origins-cover.cover_large.jpg"
+      "title": "Survival Kids",
+      "image": "survivalkids.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Survival%20Kids%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 42,
-      "title": "Assassin's Creed Valhalla",
-      "image": "assassinscreedvalhalla.png",
-      "url": "https://images.pushsquare.com/069f6c0e75a60/assassins-creed-valhalla-cover.cover_large.jpg"
+      "title": "Survival Kids 2: Escape the Twin Islands!",
+      "image": "survivalkids2.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Survival%20Kids%202%20-%20Escape%20the%20Twin%20Islands%21%20%28USA%29.png"
     },
     {
       "id": 43,
-      "title": "Far Cry 5",
-      "image": "farcry5.png",
-      "url": "https://images.pushsquare.com/7724409771e35/far-cry-5-cover.cover_large.jpg"
+      "title": "Lufia: The Legend Returns",
+      "image": "lufiathelegendreturns.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Lufia%20-%20The%20Legend%20Returns%20%28USA%29.png"
     },
     {
       "id": 44,
-      "title": "Far Cry 4",
-      "image": "farcry4.png",
-      "url": "https://images.pushsquare.com/6b0f900c004c0/far-cry-4-cover.cover_large.jpg"
+      "title": "Crystalis",
+      "image": "crystalis.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Crystalis%20%28USA%29.png"
     },
     {
       "id": 45,
-      "title": "Watch Dogs 2",
-      "image": "watchdogs2.png",
-      "url": "https://images.pushsquare.com/f7e0cd86c29c4/watch-dogs-2-cover.cover_large.jpg"
+      "title": "Warlocked",
+      "image": "warlocked.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Warlocked%20%28USA%29.png"
     },
     {
       "id": 46,
-      "title": "Batman: Arkham Knight",
-      "image": "batmanarkhamknight.png",
-      "url": "https://images.pushsquare.com/1a769fb5f9861/batman-arkham-knight-cover.cover_large.jpg"
+      "title": "Duke Nukem",
+      "image": "dukenukem.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Duke%20Nukem%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png"
     },
     {
       "id": 47,
-      "title": "Mortal Kombat 11",
-      "image": "mortalkombat11.png",
-      "url": "https://images.pushsquare.com/f3bf25c0cb57d/mortal-kombat-11-cover.cover_large.jpg"
+      "title": "Magical Tetris Challenge",
+      "image": "magicaltetrischallenge.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Magical%20Tetris%20Challenge%20%28USA%29.png"
     },
     {
       "id": 48,
-      "title": "Tekken 7",
-      "image": "tekken7.png",
-      "url": "https://images.pushsquare.com/0a687f8e165be/tekken-7-cover.cover_large.jpg"
+      "title": "Power Quest",
+      "image": "powerquest.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Power%20Quest%20%28USA%29%20%28En-US%2CEn-GB%2CFr%2CDe%2CEs%2CIt%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 49,
-      "title": "Street Fighter V",
-      "image": "streetfighter5.png",
-      "url": "https://images.pushsquare.com/c299d00fe315f/street-fighter-v-cover.cover_large.jpg"
+      "title": "Quest: Brian's Journey",
+      "image": "questbriansjourney.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Quest%20-%20Brian%27s%20Journey%20%28USA%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 50,
-      "title": "Dragon Ball FighterZ",
-      "image": "dragonballfighterz.png",
-      "url": "https://images.pushsquare.com/1167e3350fbb8/dragon-ball-fighterz-cover.cover_large.jpg"
+      "title": "Xtreme Sports",
+      "image": "xtremesports.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Xtreme%20Sports%20%28USA%29.png"
     },
     {
       "id": 51,
-      "title": "Doom",
-      "image": "doom.png",
-      "url": "https://images.pushsquare.com/7a562730fffa2/doom-cover.cover_large.jpg"
+      "title": "Deja Vu I & II: The Casebooks of Ace Harding",
+      "image": "dejavuiandii.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Deja%20Vu%20I%20_%20II%20-%20The%20Casebooks%20of%20Ace%20Harding%20%28USA%29.png"
     },
     {
       "id": 52,
-      "title": "Doom Eternal",
-      "image": "doometernal.png",
-      "url": "https://images.pushsquare.com/51803f187151d/doom-eternal-cover.cover_large.jpg"
+      "title": "Shadowgate Classic",
+      "image": "shadowgateclassic.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Shadowgate%20Classic%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CSv%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 53,
-      "title": "Wolfenstein II: The New Colossus",
-      "image": "wolfenstein2thenewcolossus.png",
-      "url": "https://images.pushsquare.com/6e3cb1d50f95c/wolfenstein-ii-the-new-colossus-cover.cover_large.jpg"
+      "title": "Ghosts'n Goblins",
+      "image": "ghostsngoblins.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Ghosts%27n%20Goblins%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 54,
-      "title": "The Evil Within 2",
-      "image": "theevilwithin2.png",
-      "url": "https://images.pushsquare.com/4faba16ed5a5d/evil-within-2-cover.cover_large.jpg"
+      "title": "Pocket Bomberman",
+      "image": "pocketbomberman.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pocket%20Bomberman%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 55,
-      "title": "Nioh",
-      "image": "nioh.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Nioh%20%28Japan%29.png"
+      "title": "Bust-A-Move 4",
+      "image": "bustamove4.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bust-A-Move%204%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 56,
-      "title": "Dragon Quest Builders",
-      "image": "dragonquestbuilders.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Dragon%20Quest%20Builders%20%28Japan%29.png"
+      "title": "Bust-A-Move Millennium",
+      "image": "bustamovemillennium.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bust-A-Move%20Millennium%20%28USA%2C%20Europe%29.png"
     },
     {
       "id": 57,
-      "title": "Gravity Rush Remastered",
-      "image": "gravityrushremastered.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Gravity%20Rush%20Remastered%20%28Europe%29.png"
+      "title": "Cannon Fodder",
+      "image": "cannonfodder.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Cannon%20Fodder%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png"
     },
     {
       "id": 58,
-      "title": "Gravity Daze",
-      "image": "gravitydaze.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Gravity%20Daze%20%28Japan%29.png"
+      "title": "Gex: Enter the Gecko",
+      "image": "gexenterthegecko.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Gex%20-%20Enter%20the%20Gecko%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 59,
-      "title": "Final Fantasy X/X-2 HD Remaster",
-      "image": "finalfantasyxx2hdremaster.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Final%20Fantasy%20X%20%26%20X-2%20HD%20Remaster%20%28Europe%29.png"
+      "title": "Gex 3: Deep Pocket Gecko",
+      "image": "gex3deeppocketgecko.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Gex%203%20-%20Deep%20Pocket%20Gecko%20%28USA%29.png"
     },
     {
       "id": 60,
-      "title": "Final Fantasy Type-0 HD",
-      "image": "finalfantasytype0hd.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Final%20Fantasy%20Type-0%20HD%20%28Day%20One%20Edition%29%20%28USA%29.png"
+      "title": "Bomberman Quest",
+      "image": "bombermanquest.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bomberman%20Quest%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png"
     },
     {
       "id": 61,
-      "title": "Final Fantasy XIV Online: A Realm Reborn",
-      "image": "finalfantasy14onlinearealmreborn.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Final%20Fantasy%20XIV%20Online%20-%20A%20Realm%20Reborn%20%28Europe%29.png"
+      "title": "Bomberman Max: Blue Champion",
+      "image": "bombermanmaxbluechampion.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bomberman%20Max%20-%20Blue%20Champion%20%28USA%29.png"
     },
     {
       "id": 62,
-      "title": "Yakuza Kiwami",
-      "image": "yakuzakiwami.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Ryu%20ga%20Gotoku%20-%20Kiwami%20%28Japan%29.png"
+      "title": "Bomberman Max: Red Challenger",
+      "image": "bombermanmaxredchallenger.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bomberman%20Max%20-%20Red%20Challenger%20%28USA%29.png"
     },
     {
       "id": 63,
-      "title": "Tearaway Unfolded",
-      "image": "tearawayunfolded.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Tearaway%20%28Japan%29.png"
+      "title": "Top Gear Pocket",
+      "image": "topgearpocket.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Top%20Gear%20Pocket%20%28USA%29%20%28Rumble%20Version%29.png"
     },
     {
       "id": 64,
-      "title": "Odin Sphere Leifthrasir",
-      "image": "odinsphereleifthrasir.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Odin%20Sphere%20Leifthrasir%20%28Japan%29.png"
-    },
-    {
-      "id": 65,
-      "title": "Ratchet & Clank",
-      "image": "ratchetandclank.png",
-      "url": "https://images.pushsquare.com/e393fa62c1bc9/ratchet-and-clank-cover.cover_large.jpg"
-    },
-    {
-      "id": 66,
-      "title": "Detroit: Become Human",
-      "image": "detroitbecomehuman.png",
-      "url": "https://images.pushsquare.com/23c79955701ab/detroit-become-human-cover.cover_large.jpg"
-    },
-    {
-      "id": 67,
-      "title": "Days Gone",
-      "image": "daysgone.png",
-      "url": "https://images.pushsquare.com/97adecd7af8e7/days-gone-cover.cover_large.jpg"
-    },
-    {
-      "id": 68,
-      "title": "Infamous Second Son",
-      "image": "infamoussecondson.png",
-      "url": "https://images.pushsquare.com/11bf2b1e6b1fb/infamous-second-son-cover.cover_large.jpg"
-    },
-    {
-      "id": 69,
-      "title": "Until Dawn",
-      "image": "untildawn.png",
-      "url": "https://images.pushsquare.com/ab94bcdbc6221/until-dawn-cover.cover_large.jpg"
-    },
-    {
-      "id": 70,
-      "title": "Driveclub",
-      "image": "driveclub.png",
-      "url": "https://images.pushsquare.com/edfb9a02a42e2/driveclub-cover.cover_large.jpg"
-    },
-    {
-      "id": 71,
-      "title": "LittleBigPlanet 3",
-      "image": "littlebigplanet3.png",
-      "url": "https://images.pushsquare.com/3d660a1c23038/littlebigplanet-3-cover.cover_large.jpg"
-    },
-    {
-      "id": 72,
-      "title": "The Order: 1886",
-      "image": "theorder1886.png",
-      "url": "https://images.pushsquare.com/370b814e2d1e1/order-1886-cover.cover_large.jpg"
-    },
-    {
-      "id": 73,
-      "title": "Shadow of the Colossus",
-      "image": "shadowofthecolossus.png",
-      "url": "https://images.pushsquare.com/a5c1285467b4e/shadow-of-the-colossus-cover.cover_large.jpg"
-    },
-    {
-      "id": 74,
-      "title": "Death Stranding",
-      "image": "deathstranding.png",
-      "url": "https://images.pushsquare.com/fe3b9c40d19a4/death-stranding-cover.cover_large.jpg"
-    },
-    {
-      "id": 75,
-      "title": "Gran Turismo Sport",
-      "image": "granturismosport.png",
-      "url": "https://images.pushsquare.com/103f43ef1ad4d/gran-turismo-sport-cover.cover_large.jpg"
-    },
-    {
-      "id": 76,
-      "title": "Knack",
-      "image": "knack.png",
-      "url": "https://images.pushsquare.com/93f48c6c3b05c/knack-cover.cover_large.jpg"
-    },
-    {
-      "id": 77,
-      "title": "Killzone Shadow Fall",
-      "image": "killzoneshadowfall.png",
-      "url": "https://images.pushsquare.com/085981a4ec8d2/killzone-shadow-fall-cover.cover_large.jpg"
-    },
-    {
-      "id": 78,
-      "title": "The Last Guardian",
-      "image": "thelastguardian.png",
-      "url": "https://images.pushsquare.com/29b27db5befcc/last-guardian-cover.cover_large.jpg"
-    },
-    {
-      "id": 79,
-      "title": "Dreams",
-      "image": "dreams.png",
-      "url": "https://images.pushsquare.com/993925ad441d8/dreams-cover.cover_large.jpg"
-    },
-    {
-      "id": 80,
-      "title": "Concrete Genie",
-      "image": "concretegenie.png",
-      "url": "https://images.pushsquare.com/a7193d97c4462/concrete-genie-cover.cover_large.jpg"
-    },
-    {
-      "id": 81,
-      "title": "Marvel's Spider-Man: Miles Morales",
-      "image": "marvelsspidermanmilesmorales.png",
-      "url": "https://images.pushsquare.com/3d7cffbb7e61f/marvels-spider-man-miles-morales-cover.cover_large.jpg"
-    },
-    {
-      "id": 82,
-      "title": "Uncharted: The Lost Legacy",
-      "image": "unchartedthelostlegacy.png",
-      "url": "https://images.pushsquare.com/efc09072b5f81/uncharted-the-lost-legacy-cover.cover_large.jpg"
-    },
-    {
-      "id": 83,
-      "title": "Yakuza 0",
-      "image": "yakuza0.png",
-      "url": "https://images.pushsquare.com/f551ef64148a6/yakuza-0-cover.cover_large.jpg"
-    },
-    {
-      "id": 84,
-      "title": "Yakuza 6: The Song of Life",
-      "image": "yakuza6thesongoflife.png",
-      "url": "https://images.pushsquare.com/8f109787134e2/yakuza-6-the-song-of-life-cover.cover_large.jpg"
-    },
-    {
-      "id": 85,
-      "title": "Yakuza Kiwami 2",
-      "image": "yakuzakiwami2.png",
-      "url": "https://images.pushsquare.com/80d23d6bddc68/yakuza-kiwami-2-cover.cover_large.jpg"
-    },
-    {
-      "id": 86,
-      "title": "Judgment",
-      "image": "judgment.png",
-      "url": "https://images.pushsquare.com/25765a4a27846/judgment-cover.cover_large.jpg"
-    },
-    {
-      "id": 87,
-      "title": "Dragon Quest XI: Echoes of an Elusive Age",
-      "image": "dragonquest11echoesofanelusiveage.png",
-      "url": "https://images.pushsquare.com/8e797571e93ba/dragon-quest-xi-echoes-of-an-elusive-age-cover.cover_large.jpg"
-    },
-    {
-      "id": 88,
-      "title": "Dragon Quest Heroes: The World Tree's Woe and the Blight Below",
-      "image": "dragonquestheroestheworldtreeswoeandtheblightbelow.png",
-      "url": "https://images.pushsquare.com/09b3a26ae27da/dragon-quest-heroes-the-world-trees-woe-and-the-blight-below-cover.cover_large.jpg"
-    },
-    {
-      "id": 89,
-      "title": "Dragon Quest Heroes II",
-      "image": "dragonquestheroes2.png",
-      "url": "https://images.pushsquare.com/2456b5352f1c0/dragon-quest-heroes-ii-cover.cover_large.jpg"
-    },
-    {
-      "id": 90,
-      "title": "Ni no Kuni II: Revenant Kingdom",
-      "image": "ninokuni2revenantkingdom.png",
-      "url": "https://images.pushsquare.com/15e589bb2574c/ni-no-kuni-ii-revenant-kingdom-cover.cover_large.jpg"
-    },
-    {
-      "id": 91,
-      "title": "Tales of Berseria",
-      "image": "talesofberseria.png",
-      "url": "https://images.pushsquare.com/f52168e85530b/tales-of-berseria-cover.cover_large.jpg"
-    },
-    {
-      "id": 92,
-      "title": "Valkyria Chronicles Remastered",
-      "image": "valkyriachroniclesremastered.png",
-      "url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%204/Named_Boxarts/Senjou%20no%20Valkyria%20Remaster%20%28Japan%29.png"
-    },
-    {
-      "id": 93,
-      "title": "Kingdom Hearts III",
-      "image": "kingdomhearts3.png",
-      "url": "https://images.pushsquare.com/295aa3da42845/kingdom-hearts-iii-cover.cover_large.jpg"
-    },
-    {
-      "id": 94,
-      "title": "Kingdom Hearts HD 1.5 + 2.5 Remix",
-      "image": "kingdomheartshd15and25remix.png",
-      "url": "https://images.pushsquare.com/978680bfda204/kingdom-hearts-hd-1-5-plus-2-5-remix-cover.cover_large.jpg"
-    },
-    {
-      "id": 95,
-      "title": "Kingdom Hearts HD 2.8 Final Chapter Prologue",
-      "image": "kingdomheartshd28finalchapterprologue.png",
-      "url": "https://images.pushsquare.com/3bed706782d6d/kingdom-hearts-hd-2-8-final-chapter-prologue-cover.cover_large.jpg"
-    },
-    {
-      "id": 96,
-      "title": "Tales of Zestiria",
-      "image": "talesofzestiria.png",
-      "url": "https://images.pushsquare.com/aef08ecf6f943/tales-of-zestiria-cover.cover_large.jpg"
-    },
-    {
-      "id": 97,
-      "title": "Uncharted: The Nathan Drake Collection",
-      "image": "unchartedthenathandrakecollection.png",
-      "url": "https://images.pushsquare.com/edbd957105bc2/uncharted-the-nathan-drake-collection-cover.cover_large.jpg"
-    },
-    {
-      "id": 98,
-      "title": "Crash Bandicoot N. Sane Trilogy",
-      "image": "crashbandicootnsanetrilogy.png",
-      "url": "https://images.pushsquare.com/d83c39ea17048/crash-bandicoot-n-sane-trilogy-cover.cover_large.jpg"
-    },
-    {
-      "id": 99,
-      "title": "Spyro Reignited Trilogy",
-      "image": "spyroreignitedtrilogy.png",
-      "url": "https://images.pushsquare.com/cef3213e4aee7/spyro-reignited-trilogy-cover.cover_large.jpg"
-    },
-    {
-      "id": 100,
-      "title": "Crash Team Racing Nitro-Fueled",
-      "image": "crashteamracingnitrofueled.png",
-      "url": "https://images.pushsquare.com/fe41540835a89/crash-team-racing-nitro-fueled-cover.cover_large.jpg"
-    },
-    {
-      "id": 101,
-      "title": "Sonic Mania",
-      "image": "sonicmania.png",
-      "url": "https://images.pushsquare.com/16b2c2d84cd07/cover_large.jpg"
-    },
-    {
-      "id": 102,
-      "title": "Rayman Legends",
-      "image": "raymanlegends.png",
-      "url": "https://images.pushsquare.com/0c447b13e033b/rayman-legends-cover.cover_large.jpg"
-    },
-    {
-      "id": 103,
-      "title": "Cuphead",
-      "image": "cuphead.png",
-      "url": "https://digitalworldpsn.com/wp-content/uploads/2023/05/cuhead_ps4_1.jpg"
-    },
-    {
-      "id": 104,
-      "title": "Hollow Knight",
-      "image": "hollowknight.png",
-      "url": "https://images.pushsquare.com/4e4bbc8ae5a05/cover_large.jpg"
-    },
-    {
-      "id": 105,
-      "title": "Celeste",
-      "image": "celeste.png",
-      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLLFvMLoEAg-g2Y0Qy6EXmBLodzEtf8qHwejcybJFQ4U28ZLlZyc-vLzo&s=10"
-    },
-    {
-      "id": 106,
-      "title": "Inside",
-      "image": "inside.png",
-      "url": "https://images.pushsquare.com/dacfabd3e137c/inside-cover.cover_large.jpg"
-    },
-    {
-      "id": 107,
-      "title": "Limbo",
-      "image": "limbo.png",
-      "url": "https://down-br.img.susercontent.com/file/f722943d6fd1f7211754d5623f439597"
-    },
-    {
-      "id": 108,
-      "title": "Stardew Valley",
-      "image": "stardewvalley.png",
-      "url": "https://images.pushsquare.com/657547801aa77/stardew-valley-cover.cover_large.jpg"
-    },
-    {
-      "id": 109,
-      "title": "Undertale",
-      "image": "undertale.png",
-      "url": "https://images.pushsquare.com/87003675704db/cover_large.jpg"
-    },
-    {
-      "id": 110,
-      "title": "Shovel Knight",
-      "image": "shovelknight.png",
-      "url": "https://avatars.mds.yandex.net/get-mpic/15406152/2a00000197ff08cffc933f48d175cee0958e/orig"
-    },
-    {
-      "id": 111,
-      "title": "Diablo III: Reaper of Souls - Ultimate Evil Edition",
-      "image": "diablo3reaperofsoulsultimateeviledition.png",
-      "url": "https://images.pushsquare.com/7045602aa9ead/diablo-iii-reaper-of-souls---ultimate-evil-edition-cover.cover_large.jpg"
-    },
-    {
-      "id": 112,
-      "title": "Borderlands 3",
-      "image": "borderlands3.png",
-      "url": "https://images.pushsquare.com/5394a5a02ae9c/borderlands-3-cover.cover_large.jpg"
-    },
-    {
-      "id": 113,
-      "title": "BioShock: The Collection",
-      "image": "bioshockthecollection.png",
-      "url": "https://images.pushsquare.com/c09ec79ec1d43/bioshock-the-collection-cover.cover_large.jpg"
-    },
-    {
-      "id": 114,
-      "title": "The Elder Scrolls V: Skyrim Special Edition",
-      "image": "theelderscrolls5skyrimspecialedition.png",
-      "url": "https://images.pushsquare.com/a1bf5f5d662e6/elder-scrolls-v-skyrim---special-edition-cover.cover_large.jpg"
-    },
-    {
-      "id": 115,
-      "title": "Dishonored 2",
-      "image": "dishonored2.png",
-      "url": "https://images.pushsquare.com/39d1527a71aaa/dishonored-2-cover.cover_large.jpg"
-    },
-    {
-      "id": 116,
-      "title": "Prey",
-      "image": "prey.png",
-      "url": "https://images.pushsquare.com/972bdc4e757e8/prey-cover.cover_large.jpg"
-    },
-    {
-      "id": 117,
-      "title": "Control",
-      "image": "control.png",
-      "url": "https://images.pushsquare.com/0621a20b1b1f7/control-cover.cover_large.jpg"
-    },
-    {
-      "id": 118,
-      "title": "Hitman",
-      "image": "hitman.png",
-      "url": "https://images.pushsquare.com/35859d4a03a18/hitman-hd-enhanced-collection-cover.cover_large.jpg"
-    },
-    {
-      "id": 119,
-      "title": "Hitman 2",
-      "image": "hitman2.png",
-      "url": "https://images.pushsquare.com/1768e3762aaed/hitman-2-cover.cover_large.jpg"
-    },
-    {
-      "id": 120,
-      "title": "Tomb Raider: Definitive Edition",
-      "image": "tombraiderdefinitiveedition.png",
-      "url": "https://images.pushsquare.com/1b8739b390551/tomb-raider-definitive-edition-cover.cover_large.jpg"
-    },
-    {
-      "id": 121,
-      "title": "Rise of the Tomb Raider",
-      "image": "riseofthetombraider.png",
-      "url": "https://images.pushsquare.com/c37871135d1ca/rise-of-the-tomb-raider-cover.cover_large.jpg"
-    },
-    {
-      "id": 122,
-      "title": "Shadow of the Tomb Raider",
-      "image": "shadowofthetombraider.png",
-      "url": "https://images.pushsquare.com/7f1c2f832c01a/shadow-of-the-tomb-raider-cover.cover_large.jpg"
-    },
-    {
-      "id": 123,
-      "title": "Need for Speed Heat",
-      "image": "needforspeedheat.png",
-      "url": "https://images.pushsquare.com/f82f1611083c2/need-for-speed-heat-cover.cover_large.jpg"
-    },
-    {
-      "id": 124,
-      "title": "The Crew 2",
-      "image": "thecrew2.png",
-      "url": "https://images.pushsquare.com/a0e9c55da8d8b/crew-2-cover.cover_large.jpg"
-    },
-    {
-      "id": 125,
-      "title": "Project CARS 2",
-      "image": "projectcars2.png",
-      "url": "https://images.pushsquare.com/80b4bf788e09a/project-cars-2-cover.cover_large.jpg"
-    },
-    {
-      "id": 126,
-      "title": "WipEout Omega Collection",
-      "image": "wipeoutomegacollection.png",
-      "url": "https://images.pushsquare.com/4c8d6a6cb8224/wipeout-omega-collection-cover.cover_large.jpg"
-    },
-    {
-      "id": 127,
-      "title": "Ace Combat 7: Skies Unknown",
-      "image": "acecombat7skiesunknown.png",
-      "url": "https://images.pushsquare.com/29e2618d70cb8/ace-combat-7-skies-unknown-cover.cover_large.jpg"
-    },
-    {
-      "id": 128,
-      "title": "Naruto Shippuden: Ultimate Ninja Storm 4",
-      "image": "narutoshippudenultimateninjastorm4.png",
-      "url": "https://images.pushsquare.com/ba1598ead054b/naruto-shippuden-ultimate-ninja-storm-4-cover.cover_large.jpg"
-    }
+      "title": "Top Gear Pocket 2",
+      "image": "topgearpocket2.png",
+      "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Top%20Gear%20Pocket%202%20%28USA%29.png"
+    },
+    { "id": 65, "title": "007: The World Is Not Enough", "image": "007theworldisnotenough.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/007%20-%20The%20World%20Is%20Not%20Enough%20%28USA%2C%20Europe%29.png" },
+    { "id": 66, "title": "Aladdin", "image": "aladdin.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Aladdin%20%28USA%29.png" },
+    { "id": 67, "title": "Alone in the Dark: The New Nightmare", "image": "aloneinthedarkthenewnightmare.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare%20%28USA%29%20%28En%2CFr%2CEs%29.png" },
+    { "id": 68, "title": "Azure Dreams", "image": "azuredreams.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Azure%20Dreams%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 69, "title": "Batman: Chaos in Gotham", "image": "batmanchaosingotham.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Batman%20-%20Chaos%20in%20Gotham%20%28USA%29.png" },
+    { "id": 70, "title": "Batman Beyond: Return of the Joker", "image": "batmanbeyondreturnofthejoker.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Batman%20Beyond%20-%20Return%20of%20the%20Joker%20%28USA%29.png" },
+    { "id": 71, "title": "BattleTanx", "image": "battletanx.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/BattleTanx%20%28USA%29.png" },
+    { "id": 72, "title": "Blaster Master: Enemy Below", "image": "blastermasterenemybelow.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Blaster%20Master%20-%20Enemy%20Below%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 73, "title": "Buffy the Vampire Slayer", "image": "buffythevampireslayer.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Buffy%20the%20Vampire%20Slayer%20%28USA%2C%20Europe%29.png" },
+    { "id": 74, "title": "Bugs Bunny: Crazy Castle 3", "image": "bugsbunnycrazycastle3.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bugs%20Bunny%20-%20Crazy%20Castle%203%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png" },
+    { "id": 75, "title": "Bugs Bunny: Crazy Castle 4", "image": "bugsbunnycrazycastle4.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Bugs%20Bunny%20-%20Crazy%20Castle%204%20%28Japan%29.png" },
+    { "id": 76, "title": "Croc", "image": "croc.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Croc%20%28USA%2C%20Europe%29.png" },
+    { "id": 77, "title": "Croc 2", "image": "croc2.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Croc%202%20%28USA%2C%20Europe%29.png" },
+    { "id": 78, "title": "Driver", "image": "driver.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Driver%20-%20You%20are%20the%20Wheelman%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png" },
+    { "id": 79, "title": "Earthworm Jim: Menace 2 the Galaxy", "image": "earthwormjimmenace2thegalaxy.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Earthworm%20Jim%20-%20Menace%202%20the%20Galaxy%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png" },
+    { "id": 80, "title": "Game & Watch Gallery 2", "image": "gamewatchgallery2.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Game%20_%20Watch%20Gallery%202%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 81, "title": "Game & Watch Gallery 3", "image": "gamewatchgallery3.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Game%20_%20Watch%20Gallery%203%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 82, "title": "Grand Theft Auto", "image": "grandtheftauto.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Grand%20Theft%20Auto%20%28USA%29%20%28GB%20Compatible%29.png" },
+    { "id": 83, "title": "Grand Theft Auto 2", "image": "grandtheftauto2.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Grand%20Theft%20Auto%202%20%28USA%29.png" },
+    { "id": 84, "title": "Harry Potter and the Sorcerer's Stone", "image": "harrypotterandthesorcerersstone.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Harry%20Potter%20and%20the%20Sorcerer%27s%20Stone%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%2CPt%2CSv%2CNo%2CDa%2CFi%29.png" },
+    { "id": 85, "title": "Harry Potter and the Chamber of Secrets", "image": "harrypotterandthechamberofsecrets.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Harry%20Potter%20and%20the%20Chamber%20of%20Secrets%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%2CPt%2CSv%2CDa%29.png" },
+    { "id": 86, "title": "Heroes of Might and Magic", "image": "heroesofmightandmagic.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Heroes%20of%20Might%20and%20Magic%20%28USA%29%20%28En%2CFr%2CDe%29.png" },
+    { "id": 87, "title": "Heroes of Might and Magic II", "image": "heroesofmightandmagic2.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Heroes%20of%20Might%20and%20Magic%20II%20%28USA%29%20%28En%2CFr%2CDe%29.png" },
+    { "id": 88, "title": "LEGO Racers", "image": "legoracers.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/LEGO%20Racers%20%28USA%29%20%28En%2CFr%2CEs%29.png" },
+    { "id": 89, "title": "LEGO Stunt Rally", "image": "legostuntrally.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/LEGO%20Stunt%20Rally%20%28USA%29.png" },
+    { "id": 90, "title": "Motocross Maniacs 2", "image": "motocrossmaniacs2.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Motocross%20Maniacs%202%20%28USA%29.png" },
+    { "id": 91, "title": "Ms. Pac-Man: Special Color Edition", "image": "mspacmanspecialcoloredition.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Ms.%20Pac-Man%20-%20Special%20Color%20Edition%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 92, "title": "Pac-Man: Special Color Edition", "image": "pacmanspecialcoloredition.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Pac-Man%20-%20Special%20Color%20Edition%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 93, "title": "Perfect Dark", "image": "perfectdark.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Perfect%20Dark%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28Rumble%20Version%29.png" },
+    { "id": 94, "title": "Prince of Persia", "image": "princeofpersia.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Prince%20of%20Persia%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28GB%20Compatible%29.png" },
+    { "id": 95, "title": "Rampage: World Tour", "image": "rampageworldtour.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Rampage%20-%20World%20Tour%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png" },
+    { "id": 96, "title": "Rampage 2: Universal Tour", "image": "rampage2universaltour.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Rampage%202%20-%20Universal%20Tour%20%28USA%2C%20Europe%29.png" },
+    { "id": 97, "title": "Tomb Raider", "image": "tombraider.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Tomb%20Raider%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png" },
+    { "id": 98, "title": "Tomb Raider: Curse of the Sword", "image": "tombraidercurseofthesword.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Tomb%20Raider%20-%20Curse%20of%20the%20Sword%20%28USA%2C%20Europe%29.png" },
+    { "id": 99, "title": "Turok 2: Seeds of Evil", "image": "turok2seedsofevil.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Turok%202%20-%20Seeds%20of%20Evil%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%29%20%28GB%20Compatible%29.png" },
+    { "id": 100, "title": "Turok 3: Shadow of Oblivion", "image": "turok3shadowofoblivion.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Turok%203%20-%20Shadow%20of%20Oblivion%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%29.png" },
+    { "id": 101, "title": "Turok: Rage Wars", "image": "turokragewars.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Turok%20-%20Rage%20Wars%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%29.png" },
+    { "id": 102, "title": "Spider-Man", "image": "spiderman.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Spider-Man%20%28USA%2C%20Europe%29.png" },
+    { "id": 103, "title": "Spider-Man 2: The Sinister Six", "image": "spiderman2thesinistersix.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Spider-Man%202%20-%20The%20Sinister%20Six%20%28USA%2C%20Europe%29.png" },
+    { "id": 104, "title": "SpongeBob SquarePants: Legend of the Lost Spatula", "image": "spongebobsquarepantslegendofthelostspatula.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/SpongeBob%20SquarePants%20-%20Legend%20of%20the%20Lost%20Spatula%20%28USA%2C%20Europe%29.png" },
+    { "id": 105, "title": "Scooby-Doo!: Classic Creep Capers", "image": "scoobydooclassiccreepcapers.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Scooby-Doo%21%20-%20Classic%20Creep%20Capers%20%28USA%2C%20Europe%29.png" },
+    { "id": 106, "title": "Toy Story 2", "image": "toystory2.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Toy%20Story%202%20%28USA%2C%20Europe%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 107, "title": "Toy Story Racer", "image": "toystoryracer.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Toy%20Story%20Racer%20%28USA%2C%20Europe%29.png" },
+    { "id": 108, "title": "Yu-Gi-Oh!: Dark Duel Stories", "image": "yugiohdarkduelstories.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Yu-Gi-Oh%21%20-%20Dark%20Duel%20Stories%20%28USA%29.png" },
+    { "id": 109, "title": "Worms Armageddon", "image": "wormsarmageddon.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Worms%20Armageddon%20%28USA%29%20%28En%2CFr%2CEs%29.png" },
+    { "id": 110, "title": "X-Men: Mutant Academy", "image": "xmenmutantacademy.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/X-Men%20-%20Mutant%20Academy%20%28USA%2C%20Europe%29.png" },
+    { "id": 111, "title": "X-Men: Mutant Wars", "image": "xmenmutantwars.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/X-Men%20-%20Mutant%20Wars%20%28USA%2C%20Europe%29.png" },
+    { "id": 112, "title": "X-Men: Wolverine's Rage", "image": "xmenwolverinesrage.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/X-Men%20-%20Wolverine%27s%20Rage%20%28USA%29.png" },
+    { "id": 113, "title": "Hamtaro: Ham-Hams Unite!", "image": "hamtarohamhamsunite.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Hamtaro%20-%20Ham-Hams%20Unite%21%20%28USA%29.png" },
+    { "id": 114, "title": "Mickey's Racing Adventure", "image": "mickeysracingadventure.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mickey%27s%20Racing%20Adventure%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png" },
+    { "id": 115, "title": "Mickey's Speedway USA", "image": "mickeysspeedwayusa.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mickey%27s%20Speedway%20USA%20%28USA%2C%20Europe%29%20%28En%2CFr%2CDe%2CEs%29.png" },
+    { "id": 116, "title": "Donald Duck: Goin' Quackers", "image": "donaldduckgoinquackers.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Donald%20Duck%20-%20Goin%27%20Quackers%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png" },
+    { "id": 117, "title": "Looney Tunes Collector: Alert!", "image": "looneytunescollectoralert.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Looney%20Tunes%20Collector%20-%20Alert%21%20%28USA%29%20%28En%2CFr%2CEs%29.png" },
+    { "id": 118, "title": "Looney Tunes Racing", "image": "looneytunesracing.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Looney%20Tunes%20Racing%20%28USA%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%29.png" },
+    { "id": 119, "title": "Frogger", "image": "frogger.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Frogger%20%28USA%29%20%28GB%20Compatible%29.png" },
+    { "id": 120, "title": "Frogger 2", "image": "frogger2.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Frogger%202%20%28USA%29.png" },
+    { "id": 121, "title": "Mission: Impossible", "image": "missionimpossible.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mission%20-%20Impossible%20%28USA%29%20%28En%2CFr%2CEs%29.png" },
+    { "id": 122, "title": "Monsters, Inc.", "image": "monstersinc.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Monsters%2C%20Inc.%20%28USA%2C%20Europe%29.png" },
+    { "id": 123, "title": "Montezuma's Return!", "image": "montezumasreturn.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Montezuma%27s%20Return%21%20%28USA%29%20%28En%2CEs%29%20%28GB%20Compatible%29.png" },
+    { "id": 124, "title": "NBA 3 on 3 featuring Kobe Bryant", "image": "nba3on3featuringkobebryant.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/NBA%203%20on%203%20featuring%20Kobe%20Bryant%20%28USA%29%20%28SGB%20Enhanced%29%20%28GB%20Compatible%29.png" },
+    { "id": 125, "title": "NBA Jam 99", "image": "nbajam99.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/NBA%20Jam%2099%20%28USA%2C%20Europe%29%20%28GB%20Compatible%29.png" },
+    { "id": 126, "title": "NBA Jam 2001", "image": "nbajam2001.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/NBA%20Jam%202001%20%28USA%2C%20Europe%29.png" },
+    { "id": 127, "title": "The Mummy", "image": "themummy.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mummy%2C%20The%20%28USA%29.png" },
+    { "id": 128, "title": "The Mummy Returns", "image": "themummyreturns.png", "url": "https://thumbnails.libretro.com/Nintendo%20-%20Game%20Boy%20Color/Named_Boxarts/Mummy%20Returns%2C%20The%20%28USA%29.png" }
   ]
 }
