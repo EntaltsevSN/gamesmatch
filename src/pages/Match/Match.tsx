@@ -440,7 +440,7 @@ function Match({ platform }: MatchProps) {
       const stageNote = `Этап ${prev.stageIndex + 1} завершен. Сыграно пар: ${prev.stagePairs.length}.`;
       const winnerNote =
         championId !== null
-          ? `Турнир завершен. Чемпион: ${games.find((item) => item.id === championId)?.title ?? championId}.`
+          ? `Матч завершен. Чемпион: ${games.find((item) => item.id === championId)?.title ?? championId}.`
           : `Последний победитель этапа: ${games.find((item) => item.id === winnerId)?.title ?? winnerId}.`;
 
       if (championId !== null) {
@@ -536,12 +536,6 @@ function Match({ platform }: MatchProps) {
           championTitle={championTitle ?? String(tournament.championId)}
           onClose={() => setWinnerModalClosed(true)}
           onSave={handleSaveRun}
-          onRestart={() => {
-            setWinnerModalClosed(false);
-            setAuthor(null);
-            setGameLikes({});
-            setTournament(createInitialTournament(getShuffledParticipants(games, count), "winners"));
-          }}
         />
       </Stack>
     </Container>
