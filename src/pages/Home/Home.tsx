@@ -1,8 +1,89 @@
-import React from "react";
-import { Anchor, Badge, Card, Container, Group, List, SimpleGrid, Stack, Text, Title } from "@mantine/core";
+import React, { useEffect, useMemo, useState } from "react";
+import { Anchor, Card, Center, Container, List, Loader, SimpleGrid, Stack, Text, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { getMatches, StoredMatch } from "../../api/matches";
 import Header from "../../components/Header";
-import { matchPlatforms } from "../../config/matchPlatforms";
+import { PlatformSlug, matchPlatforms, matchPlatformsBySlug } from "../../config/matchPlatforms";
+import { aggregateMatchMetrics, compareRatingRows, getMetricsForGame } from "../../utils/globalRating";
+
+const HOME_BLOCK_LIMIT = 10;
+
+function formatCountWord(value: number, one: string, few: string, many: string): string {
+  const abs = Math.abs(value);
+  const lastTwo = abs % 100;
+  const last = abs % 10;
+
+  if (lastTwo >= 11 && lastTwo <= 14) {
+    return many;
+  }
+  if (last === 1) {
+    return one;
+  }
+  if (last >= 2 && last <= 4) {
+    return few;
+  }
+  return many;
+}
+
+function formatGamesWord(value: number): string {
+  return formatCountWord(value, "игра", "игры", "игр");
+}
+
+function formatMatchesWord(value: number): string {
+  return formatCountWord(value, "матч", "матча", "матчей");
+}
+
+function formatPointsWord(value: number): string {
+  return formatCountWord(value, "очко", "очка", "очков");
+}
+
+function buildPopularPlatforms(matches: StoredMatch[]) {
+  const counts = new Map<string, number>();
+
+  for (const match of matches) {
+    counts.set(match.platform, (counts.get(match.platform) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .map(([slug, count]) => ({
+      slug,
+      name: matchPlatformsBySlug[slug as PlatformSlug]?.name ?? slug,
+      count,
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, HOME_BLOCK_LIMIT);
+}
+
+function buildPopularGames(matches: StoredMatch[]) {
+  const metrics = aggregateMatchMetrics(matches);
+
+  return matchPlatforms
+    .flatMap((platform) =>
+      platform.games.map((game) => {
+        const gameMetrics = getMetricsForGame(metrics, platform.slug, game.id);
+
+        return {
+          id: game.id,
+          title: game.title,
+          platformSlug: platform.slug,
+          globalRating: gameMetrics.globalRating,
+          championCount: gameMetrics.championCount,
+          matchesPlayed: gameMetrics.matchesPlayed,
+        };
+      })
+    )
+    .filter((game) => game.globalRating > 0)
+    .sort(compareRatingRows)
+    .slice(0, HOME_BLOCK_LIMIT);
+}
+
+function getMatchGamesCount(match: StoredMatch): number {
+  return match.runtime?.count ?? match.gamesList.length;
+}
+
+function getMatchUrl(match: StoredMatch): string {
+  return `/matches/${match.id}`;
+}
 
 function Home() {
   const glassCardStyle = {
@@ -13,20 +94,44 @@ function Home() {
     boxShadow: "0 8px 26px rgba(0, 0, 0, 0.35)",
   } as const;
 
-  const recentMatches = [...matchPlatforms]
-    .reverse()
-    .slice(0, 4)
-    .map((platform) => ({ label: platform.name, route: platform.route }));
+  const [matches, setMatches] = useState<StoredMatch[]>([]);
+  const [isLoadingMatches, setIsLoadingMatches] = useState(true);
+  const [matchesError, setMatchesError] = useState<string | null>(null);
 
-  const popularPlatforms = [...matchPlatforms]
-    .sort((a, b) => b.games.length - a.games.length)
-    .slice(0, 4)
-    .map((platform) => ({ name: platform.name, gamesCount: platform.games.length }));
+  useEffect(() => {
+    let isActive = true;
 
-  const popularGames = matchPlatforms
-    .flatMap((platform) => platform.games.map((game) => ({ ...game, platformName: platform.name })))
-    .sort((a, b) => a.title.localeCompare(b.title))
-    .slice(0, 8);
+    const loadMatches = async () => {
+      setIsLoadingMatches(true);
+      setMatchesError(null);
+
+      try {
+        const data = await getMatches();
+        if (isActive) {
+          setMatches(data);
+        }
+      } catch {
+        if (isActive) {
+          setMatchesError("Не удалось загрузить матчи.");
+          setMatches([]);
+        }
+      } finally {
+        if (isActive) {
+          setIsLoadingMatches(false);
+        }
+      }
+    };
+
+    loadMatches();
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
+  const recentMatches = useMemo(() => matches.slice(0, HOME_BLOCK_LIMIT), [matches]);
+  const popularPlatforms = useMemo(() => buildPopularPlatforms(matches), [matches]);
+  const popularGames = useMemo(() => buildPopularGames(matches), [matches]);
 
   return (
     <Container size="lg" py="xl">
@@ -39,18 +144,37 @@ function Home() {
               <Title order={3} c="white">
                 Последние матчи
               </Title>
-              <Text size="xs" c="dimmed">
-                раздел в разработке
-              </Text>
-              <List spacing="xs">
-                {recentMatches.map((match) => (
-                  <List.Item key={match.route}>
-                    <Anchor component={Link} to={match.route}>
-                      {match.label}
-                    </Anchor>
-                  </List.Item>
-                ))}
-              </List>
+              {isLoadingMatches ? (
+                <Center py="sm">
+                  <Loader size="sm" color="gray" />
+                </Center>
+              ) : matchesError ? (
+                <Text size="sm" c="dimmed">
+                  {matchesError}
+                </Text>
+              ) : recentMatches.length === 0 ? (
+                <Text size="sm" c="dimmed">
+                  Пока нет сохранённых матчей.
+                </Text>
+              ) : (
+                <List spacing="xs" listStyleType="none" icon={null} withPadding={false}>
+                  {recentMatches.map((match) => {
+                    const platformName = matchPlatformsBySlug[match.platform]?.name ?? match.platform;
+                    const gamesCount = getMatchGamesCount(match);
+
+                    return (
+                      <List.Item key={match.id}>
+                        <Anchor component={Link} to={getMatchUrl(match)}>
+                          {platformName}
+                        </Anchor>
+                        <Text span c="dimmed">
+                          {" "}({gamesCount} {formatGamesWord(gamesCount)})
+                        </Text>
+                      </List.Item>
+                    );
+                  })}
+                </List>
+              )}
             </Stack>
           </Card>
 
@@ -59,19 +183,32 @@ function Home() {
               <Title order={3} c="white">
                 Популярные платформы
               </Title>
-              <Text size="xs" c="dimmed">
-                раздел в разработке
-              </Text>
-              <List spacing="xs">
-                {popularPlatforms.map((platform) => (
-                  <List.Item key={platform.name}>
-                    <Group justify="space-between" wrap="nowrap">
-                      <Text>{platform.name}</Text>
-                      <Badge variant="light">{platform.gamesCount} игр</Badge>
-                    </Group>
-                  </List.Item>
-                ))}
-              </List>
+              {isLoadingMatches ? (
+                <Center py="sm">
+                  <Loader size="sm" color="gray" />
+                </Center>
+              ) : matchesError ? (
+                <Text size="sm" c="dimmed">
+                  {matchesError}
+                </Text>
+              ) : popularPlatforms.length === 0 ? (
+                <Text size="sm" c="dimmed">
+                  Пока нет сыгранных матчей.
+                </Text>
+              ) : (
+                <List spacing="xs" listStyleType="none" icon={null} withPadding={false}>
+                  {popularPlatforms.map((platform) => (
+                    <List.Item key={platform.slug}>
+                      <Text>
+                        {platform.name}{" "}
+                        <Text span c="dimmed">
+                          ({platform.count} {formatMatchesWord(platform.count)})
+                        </Text>
+                      </Text>
+                    </List.Item>
+                  ))}
+                </List>
+              )}
             </Stack>
           </Card>
 
@@ -80,18 +217,32 @@ function Home() {
               <Title order={3} c="white">
                 Популярные игры
               </Title>
-              <Text size="xs" c="dimmed">
-                раздел в разработке
-              </Text>
-              <List spacing="xs">
-                {popularGames.map((game) => (
-                  <List.Item key={`${game.platformName}-${game.id}`}>
-                    <Text>
-                      {game.title} <Text span c="dimmed">({game.platformName})</Text>
-                    </Text>
-                  </List.Item>
-                ))}
-              </List>
+              {isLoadingMatches ? (
+                <Center py="sm">
+                  <Loader size="sm" color="gray" />
+                </Center>
+              ) : matchesError ? (
+                <Text size="sm" c="dimmed">
+                  {matchesError}
+                </Text>
+              ) : popularGames.length === 0 ? (
+                <Text size="sm" c="dimmed">
+                  Пока нет игр с очками.
+                </Text>
+              ) : (
+                <List spacing="xs" listStyleType="none" icon={null} withPadding={false}>
+                  {popularGames.map((game) => (
+                    <List.Item key={`${game.platformSlug}-${game.id}`}>
+                      <Text>
+                        {game.title}{" "}
+                        <Text span c="dimmed">
+                          ({game.globalRating} {formatPointsWord(game.globalRating)})
+                        </Text>
+                      </Text>
+                    </List.Item>
+                  ))}
+                </List>
+              )}
             </Stack>
           </Card>
         </SimpleGrid>

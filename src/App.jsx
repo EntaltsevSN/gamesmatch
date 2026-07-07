@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Match from "./pages/Match/Match";
 import Home from "./pages/Home/Home";
+import MatchResult from "./pages/MatchResult/MatchResult";
 import MatchesPage from "./pages/Matches/Matches";
 import Rating from "./pages/Rating/Rating";
 import { matchPlatforms } from "./config/matchPlatforms";
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/matches" element={<MatchesPage />} />
+        <Route path="/matches/:matchId" element={<MatchResult />} />
         <Route path="/rating" element={<Rating />} />
         {matchPlatforms.flatMap((platform) => [
           <Route key={`${platform.slug}-base`} path={platform.route} element={<Match platform={platform.slug} />} />,

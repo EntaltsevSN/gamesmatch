@@ -11,12 +11,23 @@ export type StoredMatch = {
   author: string | null;
   champion: number | null;
   gamesList: StoredMatchGameEntry[];
+  runtime?: {
+    count?: number;
+  };
+  createdAt?: string;
 };
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
 export async function getMatches(): Promise<StoredMatch[]> {
   const res = await fetch(`${API_BASE}/api/matches`);
+  if (!res.ok) throw new Error("API error");
+  return res.json();
+}
+
+export async function getMatch(id: string): Promise<StoredMatch> {
+  const res = await fetch(`${API_BASE}/api/matches/${encodeURIComponent(id)}`);
+  if (res.status === 404) throw new Error("NOT_FOUND");
   if (!res.ok) throw new Error("API error");
   return res.json();
 }

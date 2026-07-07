@@ -103,6 +103,25 @@ app.get("/api/matches", async (req, res) => {
   }
 });
 
+app.get("/api/matches/:id", async (req, res) => {
+  try {
+    const match = await Match.findOne({ id: req.params.id });
+
+    if (!match) {
+      return res.status(404).json({
+        message: "Матч не найден"
+      });
+    }
+
+    res.json(match);
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка при получении матча",
+      error: error.message
+    });
+  }
+});
+
 app.post("/api/matches", async (req, res) => {
   try {
     const { id, platform } = req.body;

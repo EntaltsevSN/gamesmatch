@@ -534,6 +534,7 @@ function Match({ platform }: MatchProps) {
         <Winner
           isOpen={isWinnerModalOpen}
           championTitle={championTitle ?? String(tournament.championId)}
+          matchId={matchId}
           onClose={() => setWinnerModalClosed(true)}
           onSave={handleSaveRun}
         />

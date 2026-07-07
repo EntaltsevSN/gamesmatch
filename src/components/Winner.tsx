@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Stack, Text, TextInput } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 const modalStyles = {
   content: {
@@ -40,11 +41,13 @@ const primaryButtonStyle = {
 type WinnerProps = {
   isOpen: boolean;
   championTitle: string;
+  matchId: string;
   onClose: () => void;
   onSave: (name: string) => Promise<void>;
 };
 
-function Winner({ isOpen, championTitle, onClose, onSave }: WinnerProps) {
+function Winner({ isOpen, championTitle, matchId, onClose, onSave }: WinnerProps) {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [feedback, setFeedback] = useState("");
   const [isSaving, setIsSaving] = useState(false);
@@ -85,6 +88,7 @@ function Winner({ isOpen, championTitle, onClose, onSave }: WinnerProps) {
   const handlePrimaryAction = () => {
     if (isSaved) {
       onClose();
+      navigate(`/matches/${matchId}`);
       return;
     }
 

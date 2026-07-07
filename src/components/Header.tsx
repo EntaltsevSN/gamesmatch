@@ -61,11 +61,12 @@ function getLatestUnfinishedSession(): UnfinishedSession | null {
 type HeaderProps = {
   title: string;
   subtitle?: string;
+  subtitleColor?: string;
   showPageHeading?: boolean;
   headingOrder?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
-function Header({ title, subtitle, showPageHeading = true, headingOrder = 1 }: HeaderProps) {
+function Header({ title, subtitle, subtitleColor = "dimmed", showPageHeading = true, headingOrder = 1 }: HeaderProps) {
   const location = useLocation();
   const [unfinishedSession, setUnfinishedSession] = useState<UnfinishedSession | null>(null);
   const logo = new URL("../assets/images/logo.png", import.meta.url).href;
@@ -149,7 +150,7 @@ function Header({ title, subtitle, showPageHeading = true, headingOrder = 1 }: H
       {showPageHeading ? (
         <>
           <Title order={headingOrder}>{title}</Title>
-          {subtitle ? <Text c="dimmed">{subtitle}</Text> : null}
+          {subtitle ? <Text c={subtitleColor}>{subtitle}</Text> : null}
         </>
       ) : null}
     </Stack>
