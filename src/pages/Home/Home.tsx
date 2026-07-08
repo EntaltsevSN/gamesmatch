@@ -161,6 +161,7 @@ function Home() {
                   {recentMatches.map((match) => {
                     const platformName = matchPlatformsBySlug[match.platform]?.name ?? match.platform;
                     const gamesCount = getMatchGamesCount(match);
+                    const author = match.author?.trim();
 
                     return (
                       <List.Item key={match.id}>
@@ -169,6 +170,7 @@ function Home() {
                         </Anchor>
                         <Text span c="dimmed">
                           {" "}({gamesCount} {formatGamesWord(gamesCount)})
+                          {author ? ` от ${author}` : ""}
                         </Text>
                       </List.Item>
                     );
